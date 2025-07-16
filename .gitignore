@@ -1,0 +1,19 @@
+# Vite output
+dist/
+
+# Node modules
+node_modules/
+
+# Optional: lockfile (you’re using pnpm)
+package-lock.json
+yarn.lock
+
+# System & editor junk
+.DS_Store
+.env
+.vscode/
+.idea/
+
+# Log files
+npm-debug.log*
+pnpm-debug.log*

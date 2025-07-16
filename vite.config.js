@@ -18,7 +18,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: "https://github.com/SandeepMuhal88/Portfolio_Website",
+  base: "/sandeep-portfolio-website/", // ✅ This is the correct path
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
@@ -26,3 +26,4 @@ export default defineConfig({
     },
   },
 })
+

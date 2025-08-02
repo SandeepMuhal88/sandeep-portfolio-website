@@ -271,59 +271,82 @@ function App() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section id="home" className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8 animated-bg overflow-hidden">
-        <AnimatedBackground />
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center py-20">
-            <div className="w-40 h-40 profile-glow rounded-full mx-auto mb-8 flex items-center justify-center bg-gradient-to-br from-primary to-accent pulse-glow">
-              <User className="w-20 h-20 text-white" />
-            </div>
-            <p className="text-lg text-primary mb-3">Hello, I'm</p>
-            <h1 className="text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-4">
-              Sandeep Muhal
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-2 typing-animation">
-              Computer Science & Engineering Student
-            </p>
-            <p className="text-lg text-accent mb-8">
-              <span className="text-primary">Data Scientist</span> | <span className="text-accent">Machine Learning Engineer</span> | <span className="text-chart-3">Web Developer</span>
-            </p>
-            <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-              👨‍💻 Python, Machine Learning, Data Science & Web Development 🚗 Built solutions for recommendation systems, 
-              spam detection, and data analysis. ⚡ Turning ideas into reality with code!
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                onClick={() => scrollToSection('projects')}
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg hover-glow pulse-glow"
-              >
-                Explore My Work
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 text-lg hover-glow"
-              >
-                Contact Me
-              </Button>
-            </div>
+{/* Hero Section */}
+<section
+  id="home"
+  className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8 animated-bg overflow-hidden"
+>
+  <AnimatedBackground />
+  <div className="max-w-7xl mx-auto relative z-10">
+    <div className="text-center py-20">
+      {/* Profile Image */}
+      <div className="w-40 h-40 profile-glow rounded-full mx-auto mb-8 bg-gradient-to-br from-primary to-accent pulse-glow overflow-hidden">
+        <img
+          src="images/profile.jpg"
+          alt="Sandeep Muhal"
+          className="w-full h-full object-cover"
+        />
+      </div>
 
-            {/* Social Links */}
-            <div className="flex justify-center space-x-6">
-              <a href="https://github.com/SandeepMuhal88" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                <Github className="w-6 h-6" />
-              </a>
-              <a href="https://www.linkedin.com/in/sandeep-muhal-5672aa285/" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a href="mailto:sandeepmuhal8840@gmail.com" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                <Mail className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <p className="text-lg text-primary mb-3">Hello, I'm</p>
+      <h1 className="text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-4">
+        Sandeep Muhal
+      </h1>
+      <p className="text-xl md:text-2xl text-muted-foreground mb-2 typing-animation">
+        Computer Science & Engineering Student
+      </p>
+      <p className="text-lg text-accent mb-8">
+        <span className="text-primary">Data Scientist</span> |{" "}
+        <span className="text-accent">Machine Learning Engineer</span> |{" "}
+        <span className="text-chart-3">Web Developer</span>
+      </p>
+      <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+        👨‍💻 Python, Machine Learning, Data Science & Web Development 🚗 Built
+        solutions for recommendation systems, spam detection, and data
+        analysis. ⚡ Turning ideas into reality with code!
+      </p>
+
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <Button
+          onClick={() => scrollToSection("projects")}
+          className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg hover-glow pulse-glow"
+        >
+          Explore My Work
+        </Button>
+        <Button
+          variant="outline"
+          className="border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 text-lg hover-glow"
+        >
+          Contact Me
+        </Button>
+      </div>
+
+      {/* Social Links */}
+      <div className="flex justify-center space-x-6">
+        <a
+          href="https://github.com/SandeepMuhal88" target="_blank"
+          className="text-muted-foreground hover:text-primary transition-colors hover-glow"
+        >
+          <Github className="w-6 h-6" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/sandeep-muhal-5672aa285/" target="_blank"
+          className="text-muted-foreground hover:text-primary transition-colors hover-glow"
+        >
+          <Linkedin className="w-6 h-6" />
+        </a>
+        <a
+          href="mailto:sandeepmuhal8840@gmail.com" target="_blank"
+          className="text-muted-foreground hover:text-primary transition-colors hover-glow"
+        >
+          <Mail className="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* About Section */}
       <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">

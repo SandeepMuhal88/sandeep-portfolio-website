@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge.jsx'
 import { Input } from '@/components/ui/input.jsx'
 import { Textarea } from '@/components/ui/textarea.jsx'
-import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code, Database, Brain, Globe, Calendar, User,Youtube,Twitter, BookOpen, MessageSquare, Coffee, Instagram } from 'lucide-react'
+import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code, Database, Brain, Globe, Calendar, User, Youtube, Twitter, BookOpen, MessageSquare, Coffee, Instagram } from 'lucide-react'
 import BlogList from './components/BlogList.jsx'
 import BlogPost from './components/BlogPost.jsx'
 import AnimatedBackground from './components/AnimatedBackground.jsx'
@@ -130,7 +130,7 @@ function App() {
         if (element) {
           const offsetTop = element.offsetTop
           const offsetHeight = element.offsetHeight
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section)
             break
@@ -169,7 +169,7 @@ function App() {
           <nav className="fixed top-0 w-full bg-card/90 backdrop-blur-md border-b border-border z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-4">
-                <button 
+                <button
                   onClick={handleBackToPortfolio}
                   className="text-2xl font-bold text-primary hover:text-accent transition-colors"
                 >
@@ -193,7 +193,7 @@ function App() {
           <nav className="fixed top-0 w-full bg-card/90 backdrop-blur-md border-b border-border z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex justify-between items-center py-4">
-                <button 
+                <button
                   onClick={handleBackToPortfolio}
                   className="text-2xl font-bold text-primary hover:text-accent transition-colors"
                 >
@@ -218,491 +218,490 @@ function App() {
 
       {currentView === 'portfolio' && (
         <div>
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-card/90 backdrop-blur-md border-b border-border z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-4">
-            <div className="text-2xl font-bold text-primary">Sandeep Muhal</div>
-            
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'projects', 'skills', 'education', 'blog', 'contact'].map((item) => (
+          {/* Navigation */}
+          <nav className="fixed top-0 w-full bg-card/90 backdrop-blur-md border-b border-border z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center py-4">
+                <div className="text-2xl font-bold text-primary">Sandeep Muhal</div>
+
+                {/* Desktop Navigation */}
+                <div className="hidden md:flex space-x-8">
+                  {['home', 'about', 'projects', 'skills', 'education', 'blog', 'contact'].map((item) => (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(item)}
+                      className={`capitalize transition-colors duration-200 ${activeSection === item
+                          ? 'nav-active'
+                          : 'text-muted-foreground hover:text-primary'
+                        }`}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Mobile Menu Button */}
                 <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className={`capitalize transition-colors duration-200 ${
-                    activeSection === item 
-                      ? 'nav-active' 
-                      : 'text-muted-foreground hover:text-primary'
-                  }`}
+                  className="md:hidden"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
                 >
-                  {item}
+                  <div className="w-6 h-6 flex flex-col justify-center items-center">
+                    <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
+                    <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                    <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
+                  </div>
                 </button>
-              ))}
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <div className="w-6 h-6 flex flex-col justify-center items-center">
-                <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`}></span>
-                <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                <span className={`bg-foreground block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm ${isMenuOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`}></span>
               </div>
-            </button>
-          </div>
 
-          {/* Mobile Navigation */}
-          {isMenuOpen && (
-            <div className="md:hidden pb-4">
-              {['home', 'about', 'projects', 'skills', 'education', 'blog', 'contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="block w-full text-left py-2 capitalize text-muted-foreground hover:text-primary"
-                >
-                  {item}
-                </button>
-              ))}
+              {/* Mobile Navigation */}
+              {isMenuOpen && (
+                <div className="md:hidden pb-4">
+                  {['home', 'about', 'projects', 'skills', 'education', 'blog', 'contact'].map((item) => (
+                    <button
+                      key={item}
+                      onClick={() => scrollToSection(item)}
+                      className="block w-full text-left py-2 capitalize text-muted-foreground hover:text-primary"
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
-        </div>
-      </nav>
+          </nav>
 
-{/* Hero Section */}
-<section
-  id="home"
-  className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8 animated-bg overflow-hidden"
->
-  <AnimatedBackground />
-  <div className="max-w-7xl mx-auto relative z-10">
-    <div className="text-center py-20">
-      {/* Profile Image */}
-      <div className="w-40 h-40 profile-glow rounded-full mx-auto mb-8 bg-gradient-to-br from-primary to-accent pulse-glow overflow-hidden">
-        <img
-          src="images/profile.jpg"
-          alt="Sandeep Muhal"
-          className="w-full h-full object-cover"
-        />
-      </div>
+          {/* Hero Section */}
+          <section
+            id="home"
+            className="relative pt-20 pb-16 px-4 sm:px-6 lg:px-8 animated-bg overflow-hidden"
+          >
+            <AnimatedBackground />
+            <div className="max-w-7xl mx-auto relative z-10">
+              <div className="text-center py-20">
+                {/* Profile Image */}
+                <div className="w-40 h-40 profile-glow rounded-full mx-auto mb-8 bg-gradient-to-br from-primary to-accent pulse-glow overflow-hidden">
+                  <img
+                    src="images/profile.jpg"
+                    alt="Sandeep Muhal"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
 
-      <p className="text-lg text-primary mb-3">Hello, I'm</p>
-      <h1 className="text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-4">
-        Sandeep Muhal
-      </h1>
-      <p className="text-xl md:text-2xl text-muted-foreground mb-2 typing-animation">
-        Computer Science & Engineering Student
-      </p>
-      <p className="text-lg text-accent mb-8">
-        <span className="text-primary">Data Scientist</span> |{" "}
-        <span className="text-accent">Machine Learning Engineer</span> |{" "}
-        <span className="text-chart-3">Web Developer</span>
-      </p>
-      <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-        👨‍💻 Python, Machine Learning, Data Science & Web Development 🚗 Built
-        solutions for recommendation systems, spam detection, and data
-        analysis. ⚡ Turning ideas into reality with code!
-      </p>
+                <p className="text-lg text-primary mb-3">Hello, I'm</p>
+                <h1 className="text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent mb-4">
+                  Sandeep Muhal
+                </h1>
+                <p className="text-xl md:text-2xl text-muted-foreground mb-2 typing-animation">
+                  Computer Science & Engineering Student
+                </p>
+                <p className="text-lg text-accent mb-8">
+                  <span className="text-primary">Data Scientist</span> |{" "}
+                  <span className="text-accent">Machine Learning Engineer</span> |{" "}
+                  <span className="text-chart-3">Web Developer</span>
+                </p>
+                <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
+                  👨‍💻 Python, Machine Learning, Data Science & Web Development 🚗 Built
+                  solutions for recommendation systems, spam detection, and data
+                  analysis. ⚡ Turning ideas into reality with code!
+                </p>
 
-      {/* Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-        <Button
-          onClick={() => scrollToSection("projects")}
-          className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg hover-glow pulse-glow"
-        >
-          Explore My Work
-        </Button>
-        <Button
-          variant="outline"
-          className="border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 text-lg hover-glow"
-        >
-          Contact Me
-        </Button>
-      </div>
+                {/* Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                  <Button
+                    onClick={() => scrollToSection("projects")}
+                    className="bg-primary hover:bg-primary/90 text-white px-8 py-3 text-lg hover-glow pulse-glow"
+                  >
+                    Explore My Work
+                  </Button>
+                  <Button
+                    variant="outline"
+                    className="border-accent text-accent hover:bg-accent hover:text-white px-8 py-3 text-lg hover-glow"
+                  >
+                    Contact Me
+                  </Button>
+                </div>
 
-      {/* Social Links */}
-      <div className="flex justify-center space-x-6">
-        <a
-          href="https://github.com/SandeepMuhal88" target="_blank"
-          className="text-muted-foreground hover:text-primary transition-colors hover-glow"
-        >
-          <Github className="w-6 h-6" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/sandeep-muhal-5672aa285/" target="_blank"
-          className="text-muted-foreground hover:text-primary transition-colors hover-glow"
-        >
-          <Linkedin className="w-6 h-6" />
-        </a>
-        <a
-          href="mailto:sandeepmuhal8840@gmail.com" target="_blank"
-          className="text-muted-foreground hover:text-primary transition-colors hover-glow"
-        >
-          <Mail className="w-6 h-6" />
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+                {/* Social Links */}
+                <div className="flex justify-center space-x-6">
+                  <a
+                    href="https://github.com/SandeepMuhal88" target="_blank"
+                    className="text-muted-foreground hover:text-primary transition-colors hover-glow"
+                  >
+                    <Github className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/sandeep-muhal-5672aa285/" target="_blank"
+                    className="text-muted-foreground hover:text-primary transition-colors hover-glow"
+                  >
+                    <Linkedin className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="mailto:sandeepmuhal8840@gmail.com" target="_blank"
+                    className="text-muted-foreground hover:text-primary transition-colors hover-glow"
+                  >
+                    <Mail className="w-6 h-6" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
 
 
-      {/* About Section */}
-      <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-4">About Me</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Discover my journey, skills, and what drives my passion for creating exceptional digital experiences.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Who am I?</h3>
-              <p className="text-lg text-muted-foreground mb-6">
-                I'm Sandeep Muhal, a passionate Computer Science and Engineering student at Bikaner Technical University, 
-                transforming complex data into actionable insights and innovative solutions.
+          {/* About Section */}
+          <section id="about" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-4xl font-bold text-center text-foreground mb-4">About Me</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Discover my journey, skills, and what drives my passion for creating exceptional digital experiences.
               </p>
-              <p className="text-lg text-muted-foreground mb-6">
-                My expertise lies in Python, Machine Learning, Deep Learning and Data Science, where I blend technical 
-                skills with creative problem-solving to build intelligent systems that make a difference.
-              </p>
-              <p className="text-lg text-muted-foreground mb-6">
-                When I'm not coding, you'll find me exploring the latest advancements in AI, contributing to open-source 
-                projects, or mentoring aspiring data scientists.
-              </p>
-              
-              <div className="flex items-center text-muted-foreground mb-4">
-                <MapPin className="w-5 h-5 mr-2 text-primary" />
-                <span>Kishangrah, Ajmer, Rajasthan</span>
-              </div>
-              <div className="flex items-center text-muted-foreground mb-4">
-                <Mail className="w-5 h-5 mr-2 text-primary" />
-                <span>sandeepmuhal8840@gmail.com</span>
-              </div>
-              <div className="flex items-center text-muted-foreground">
-                <Phone className="w-5 h-5 mr-2 text-primary" />
-                <span>+91 7879496344</span>
+
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground mb-4">Who am I?</h3>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    I'm Sandeep Muhal, a passionate Computer Science and Engineering student at Bikaner Technical University,
+                    transforming complex data into actionable insights and innovative solutions.
+                  </p>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    My expertise lies in Python, Machine Learning, Deep Learning and Data Science, where I blend technical
+                    skills with creative problem-solving to build intelligent systems that make a difference.
+                  </p>
+                  <p className="text-lg text-muted-foreground mb-6">
+                    When I'm not coding, you'll find me exploring the latest advancements in AI, contributing to open-source
+                    projects, or mentoring aspiring data scientists.
+                  </p>
+
+                  <div className="flex items-center text-muted-foreground mb-4">
+                    <MapPin className="w-5 h-5 mr-2 text-primary" />
+                    <span>Kishangrah, Ajmer, Rajasthan</span>
+                  </div>
+                  <div className="flex items-center text-muted-foreground mb-4">
+                    <Mail className="w-5 h-5 mr-2 text-primary" />
+                    <span>sandeepmuhal8840@gmail.com</span>
+                  </div>
+                  <div className="flex items-center text-muted-foreground">
+                    <Phone className="w-5 h-5 mr-2 text-primary" />
+                    <span>+91 7879496344</span>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <Card className="hover-lift bg-card border-border">
+                    <CardHeader>
+                      <CardTitle className="flex items-center text-foreground">
+                        <Brain className="w-5 h-5 mr-2 text-primary" />
+                        Expertise Areas
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-2 gap-2">
+                        <Badge variant="secondary" className="bg-primary/20 text-primary">Machine Learning</Badge>
+                        <Badge variant="secondary" className="bg-accent/20 text-accent">Deep Learning</Badge>
+                        <Badge variant="secondary" className="bg-chart-3/20 text-chart-3">Data Analysis</Badge>
+                        <Badge variant="secondary" className="bg-chart-4/20 text-chart-4">NLP</Badge>
+                        <Badge variant="secondary" className="bg-chart-5/20 text-chart-5">Web Development</Badge>
+                        <Badge variant="secondary" className="bg-primary/20 text-primary">Model Deployment</Badge>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <Card className="text-center hover-lift bg-card border-border">
+                      <CardContent className="p-6">
+                        <div className="text-3xl font-bold text-primary mb-2">4+</div>
+                        <div className="text-sm text-muted-foreground">Projects Completed</div>
+                      </CardContent>
+                    </Card>
+                    <Card className="text-center hover-lift bg-card border-border">
+                      <CardContent className="p-6">
+                        <div className="text-3xl font-bold text-accent mb-2">2+</div>
+                        <div className="text-sm text-muted-foreground">Years Learning</div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </div>
               </div>
             </div>
-            
-            <div className="space-y-6">
-              <Card className="hover-lift bg-card border-border">
-                <CardHeader>
-                  <CardTitle className="flex items-center text-foreground">
-                    <Brain className="w-5 h-5 mr-2 text-primary" />
-                    Expertise Areas
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-2">
-                    <Badge variant="secondary" className="bg-primary/20 text-primary">Machine Learning</Badge>
-                    <Badge variant="secondary" className="bg-accent/20 text-accent">Deep Learning</Badge>
-                    <Badge variant="secondary" className="bg-chart-3/20 text-chart-3">Data Analysis</Badge>
-                    <Badge variant="secondary" className="bg-chart-4/20 text-chart-4">NLP</Badge>
-                    <Badge variant="secondary" className="bg-chart-5/20 text-chart-5">Web Development</Badge>
-                    <Badge variant="secondary" className="bg-primary/20 text-primary">Model Deployment</Badge>
-                  </div>
-                </CardContent>
-              </Card>
+          </section>
 
-              {/* Stats */}
-              <div className="grid grid-cols-2 gap-4">
-                <Card className="text-center hover-lift bg-card border-border">
-                  <CardContent className="p-6">
-                    <div className="text-3xl font-bold text-primary mb-2">4+</div>
-                    <div className="text-sm text-muted-foreground">Projects Completed</div>
-                  </CardContent>
-                </Card>
-                <Card className="text-center hover-lift bg-card border-border">
-                  <CardContent className="p-6">
-                    <div className="text-3xl font-bold text-accent mb-2">2+</div>
-                    <div className="text-sm text-muted-foreground">Years Learning</div>
-                  </CardContent>
-                </Card>
+          {/* Projects Section */}
+          <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 animated-bg-programming relative">
+            <div className="tech-grid absolute inset-0 opacity-30"></div>
+            <div className="max-w-7xl mx-auto relative z-10">
+              <h2 className="text-4xl font-bold text-center text-foreground mb-4">My Projects</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                A collection of my recent work, showcasing my skills and expertise in machine learning and data science.
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                {projects.map((project, index) => (
+                  <Card key={index} className="hover-lift bg-card border-border group">
+                    <CardHeader>
+                      <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
+                        {project.title}
+                      </CardTitle>
+                      <CardDescription className="text-muted-foreground">
+                        {project.description}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-foreground mb-2">Technologies Used:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.map((tech, techIndex) => (
+                            <Badge key={techIndex} variant="outline" className="text-xs border-primary/30 text-primary">
+                              {tech}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="mb-4">
+                        <h4 className="font-semibold text-foreground mb-2">Key Contributions:</h4>
+                        <p className="text-sm text-muted-foreground">{project.keyContributions}</p>
+                      </div>
+                      <div className="flex space-x-4">
+                        <Button variant="outline" size="sm" className="flex items-center hover-glow" onClick={() => window.open(project.github, '_blank')}>
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </Button>
+                        <Button variant="outline" size="sm" className="flex items-center hover-glow" onClick={() => window.open(project.demo, '_blank')}>
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          Demo
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 animated-bg-programming relative">
-        <div className="tech-grid absolute inset-0 opacity-30"></div>
-        <div className="max-w-7xl mx-auto relative z-10">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-4">My Projects</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            A collection of my recent work, showcasing my skills and expertise in machine learning and data science.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="hover-lift bg-card border-border group">
-                <CardHeader>
-                  <CardTitle className="text-xl text-foreground group-hover:text-primary transition-colors">
-                    {project.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-foreground mb-2">Technologies Used:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Badge key={techIndex} variant="outline" className="text-xs border-primary/30 text-primary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="mb-4">
-                    <h4 className="font-semibold text-foreground mb-2">Key Contributions:</h4>
-                    <p className="text-sm text-muted-foreground">{project.keyContributions}</p>
-                  </div>
-                  <div className="flex space-x-4">
-                    <Button variant="outline" size="sm" className="flex items-center hover-glow" onClick={() => window.open(project.github, '_blank')}>
-                      <Github className="w-4 h-4 mr-2" />
-                      Code
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex items-center hover-glow" onClick={() => window.open(project.demo, '_blank')}>
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      Demo
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Skills Section */}
+          <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-4xl font-bold text-center text-foreground mb-4">Technical Arsenal</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Explore my specialized skill domains and tech stack
+              </p>
 
-      {/* Skills Section */}
-      <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-4">Technical Arsenal</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Explore my specialized skill domains and tech stack
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(skills).map(([category, skillList], index) => {
-              const colors = ['primary', 'accent', 'chart-3', 'chart-4', 'chart-5', 'primary', 'accent', 'chart-3']
-              const color = colors[index % colors.length]
-              
-              return (
-                <Card key={index} className="hover-lift bg-card border-border group">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {Object.entries(skills).map(([category, skillList], index) => {
+                  const colors = ['primary', 'accent', 'chart-3', 'chart-4', 'chart-5', 'primary', 'accent', 'chart-3']
+                  const color = colors[index % colors.length]
+
+                  return (
+                    <Card key={index} className="hover-lift bg-card border-border group">
+                      <CardHeader>
+                        <CardTitle className="text-lg text-foreground flex items-center group-hover:text-primary transition-colors">
+                          {category === "Programming Languages" && <Code className={`w-5 h-5 mr-2 text-${color}`} />}
+                          {category === "Data Analysis" && <Database className={`w-5 h-5 mr-2 text-${color}`} />}
+                          {category === "Machine Learning" && <Brain className={`w-5 h-5 mr-2 text-${color}`} />}
+                          {category === "Frontend Development" && <Globe className={`w-5 h-5 mr-2 text-${color}`} />}
+                          {!["Programming Languages", "Data Analysis", "Machine Learning", "Frontend Development"].includes(category) && <Code className={`w-5 h-5 mr-2 text-${color}`} />}
+                          {category}
+                        </CardTitle>
+                        <CardDescription className="text-muted-foreground">
+                          {skillList.length} skills
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2">
+                          {skillList.map((skill, skillIndex) => (
+                            <Badge key={skillIndex} variant="secondary" className={`text-xs bg-${color}/20 text-${color}`}>
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Education Section */}
+          <section id="education" className="py-16 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-4xl font-bold text-center text-foreground mb-12">Education</h2>
+              <div className="max-w-4xl mx-auto">
+                <Card className="hover-lift bg-card border-border">
                   <CardHeader>
-                    <CardTitle className="text-lg text-foreground flex items-center group-hover:text-primary transition-colors">
-                      {category === "Programming Languages" && <Code className={`w-5 h-5 mr-2 text-${color}`} />}
-                      {category === "Data Analysis" && <Database className={`w-5 h-5 mr-2 text-${color}`} />}
-                      {category === "Machine Learning" && <Brain className={`w-5 h-5 mr-2 text-${color}`} />}
-                      {category === "Frontend Development" && <Globe className={`w-5 h-5 mr-2 text-${color}`} />}
-                      {!["Programming Languages", "Data Analysis", "Machine Learning", "Frontend Development"].includes(category) && <Code className={`w-5 h-5 mr-2 text-${color}`} />}
-                      {category}
+                    <CardTitle className="text-2xl text-foreground flex items-center">
+                      <BookOpen className="w-6 h-6 mr-3 text-primary" />
+                      Bachelor of Technology in Computer Science and Engineering
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
-                      {skillList.length} skills
+                    <CardDescription className="text-lg text-muted-foreground">
+                      Bikaner Technical University
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <div className="flex flex-wrap gap-2">
-                      {skillList.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="secondary" className={`text-xs bg-${color}/20 text-${color}`}>
-                          {skill}
-                        </Badge>
-                      ))}
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <div className="flex items-center mb-2">
+                          <Calendar className="w-4 h-4 mr-2 text-primary" />
+                          <span className="text-muted-foreground">Expected August 2026</span>
+                        </div>
+                        <div className="mb-4">
+                          <span className="font-semibold text-foreground">CGPA: </span>
+                          <span className="text-primary font-bold">7.93/10.0</span>
+                        </div>
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-foreground mb-2">Relevant Courses:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {["Data Structures and Algorithms", "Machine Learning", "Python", "SQL", "C"].map((course, index) => (
+                            <Badge key={index} variant="outline" className="text-xs border-accent/30 text-accent">
+                              {course}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </CardContent>
                 </Card>
-              )
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Education Section */}
-      <section id="education" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-12">Education</h2>
-          <div className="max-w-4xl mx-auto">
-            <Card className="hover-lift bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-2xl text-foreground flex items-center">
-                  <BookOpen className="w-6 h-6 mr-3 text-primary" />
-                  Bachelor of Technology in Computer Science and Engineering
-                </CardTitle>
-                <CardDescription className="text-lg text-muted-foreground">
-                  Bikaner Technical University
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <div className="flex items-center mb-2">
-                      <Calendar className="w-4 h-4 mr-2 text-primary" />
-                      <span className="text-muted-foreground">Expected August 2026</span>
-                    </div>
-                    <div className="mb-4">
-                      <span className="font-semibold text-foreground">CGPA: </span>
-                      <span className="text-primary font-bold">7.93/10.0</span>
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-2">Relevant Courses:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {["Data Structures and Algorithms", "Machine Learning", "Python", "SQL", "C"].map((course, index) => (
-                        <Badge key={index} variant="outline" className="text-xs border-accent/30 text-accent">
-                          {course}
-                        </Badge>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section id="blog" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-4">Latest Blog Posts</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Sharing insights, tutorials, and experiences in Machine Learning, Data Science, and Web Development
-          </p>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <Card key={post.id} className="hover-lift bg-card border-border cursor-pointer group" onClick={() => handlePostSelect(post)}>
-                <CardHeader>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-muted-foreground">{post.date}</span>
-                    <span className="text-sm text-primary">{post.readTime}</span>
-                  </div>
-                  <CardTitle className="text-lg text-foreground group-hover:text-primary transition-colors">
-                    {post.title}
-                  </CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {post.excerpt}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {post.tags.map((tag, index) => (
-                      <Badge key={index} variant="secondary" className="text-xs bg-accent/20 text-accent">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <Button variant="outline" size="sm" className="w-full hover-glow">
-                    Read More
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          <div className="text-center mt-12">
-            <Button 
-              onClick={() => scrollToSection('blog')}
-              className="bg-primary hover:bg-primary/90 text-white hover-glow"
-            >
-              View All Posts
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-foreground mb-4">Get In Touch</h2>
-          <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out!
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">Contact Information</h3>
-              
-              <div className="space-y-4">
-                <div className="flex items-center">
-                  <Mail className="w-5 h-5 mr-3 text-primary" />
-                  <span className="text-muted-foreground">sandeepmuhal8840@gmail.com</span>
-                </div>
-                <div className="flex items-center">
-                  <Phone className="w-5 h-5 mr-3 text-primary" />
-                  <span className="text-muted-foreground">+91 7879496344</span>
-                </div>
-                <div className="flex items-center">
-                  <MapPin className="w-5 h-5 mr-3 text-primary" />
-                  <span className="text-muted-foreground">Kishangrah, Ajmer, Rajasthan, India</span>
-                </div>
-              </div>
-
-              <div className="flex space-x-4 mt-8">
-                <a href="https://github.com/Sandeepmuhal88" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="https://www.linkedin.com/in/sandeep-muhal-5672aa285/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a href="https://www.instagram.com/i_sandeepmuhal8/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a href='https://www.youtube.com/@sandeepmuhal88' target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                  <Youtube className="w-6 h-6" />
-                </a>
-                <a href="https://x.com/i_sandeepmuhal8" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                  <Twitter className="w-6 h-6" />
-                </a>
-                <a href="https://drive.google.com/file/d/17EZRP0yM7X-rzywgbz01SVW1Ujo5_MBj/view?usp=drive_link" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
-                  <Coffee className="w-6 h-6" />
-                </a>
               </div>
             </div>
+          </section>
 
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="flex items-center text-foreground">
-                  <MessageSquare className="w-5 h-5 mr-2 text-primary" />
-                  Send Me a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form className="space-y-4">
-                  <div>
-                    <Input placeholder="Your Name" className="bg-secondary border-border text-foreground" />
-                  </div>
-                  <div>
-                    <Input type="email" placeholder="Your Email" className="bg-secondary border-border text-foreground" />
-                  </div>
-                  <div>
-                    <Input placeholder="Subject" className="bg-secondary border-border text-foreground" />
-                  </div>
-                  <div>
-                    <Textarea placeholder="Your Message" rows={4} className="bg-secondary border-border text-foreground" />
-                  </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white hover-glow">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
+          {/* Blog Section */}
+          <section id="blog" className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/50">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-4xl font-bold text-center text-foreground mb-4">Latest Blog Posts</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Sharing insights, tutorials, and experiences in Machine Learning, Data Science, and Web Development
+              </p>
 
-      {/* Footer */}
-      <footer className="bg-card border-t border-border py-8 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-muted-foreground">
-            © 2025 Sandeep Muhal.
-          </p>
-        </div>
-      </footer>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {blogPosts.map((post) => (
+                  <Card key={post.id} className="hover-lift bg-card border-border cursor-pointer group" onClick={() => handlePostSelect(post)}>
+                    <CardHeader>
+                      <div className="flex items-center justify-between mb-2">
+                        <span className="text-sm text-muted-foreground">{post.date}</span>
+                        <span className="text-sm text-primary">{post.readTime}</span>
+                      </div>
+                      <CardTitle className="text-lg text-foreground group-hover:text-primary transition-colors">
+                        {post.title}
+                      </CardTitle>
+                      <CardDescription className="text-muted-foreground">
+                        {post.excerpt}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {post.tags.map((tag, index) => (
+                          <Badge key={index} variant="secondary" className="text-xs bg-accent/20 text-accent">
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
+                      <Button variant="outline" size="sm" className="w-full hover-glow">
+                        Read More
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+              <div className="text-center mt-12">
+                <Button
+                  onClick={() => scrollToSection('blog')}
+                  className="bg-primary hover:bg-primary/90 text-white hover-glow"
+                >
+                  View All Posts
+                </Button>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+              <h2 className="text-4xl font-bold text-center text-foreground mb-4">Get In Touch</h2>
+              <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
+                Have a project in mind or want to collaborate? Feel free to reach out!
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                  <h3 className="text-2xl font-semibold text-foreground mb-6">Contact Information</h3>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <Mail className="w-5 h-5 mr-3 text-primary" />
+                      <span className="text-muted-foreground">sandeepmuhal8840@gmail.com</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Phone className="w-5 h-5 mr-3 text-primary" />
+                      <span className="text-muted-foreground">+91 7879496344</span>
+                    </div>
+                    <div className="flex items-center">
+                      <MapPin className="w-5 h-5 mr-3 text-primary" />
+                      <span className="text-muted-foreground">Kishangrah, Ajmer, Rajasthan, India</span>
+                    </div>
+                  </div>
+
+                  <div className="flex space-x-4 mt-8">
+                    <a href="https://github.com/Sandeepmuhal88" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
+                      <Github className="w-6 h-6" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/sandeep-muhal-5672aa285/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
+                      <Linkedin className="w-6 h-6" />
+                    </a>
+                    <a href="https://www.instagram.com/i_sandeepmuhal8/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
+                      <Instagram className="w-6 h-6" />
+                    </a>
+                    <a href='https://www.youtube.com/@sandeepmuhal88' target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
+                      <Youtube className="w-6 h-6" />
+                    </a>
+                    <a href="https://x.com/i_sandeepmuhal8" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
+                      <Twitter className="w-6 h-6" />
+                    </a>
+                    <a href="https://drive.google.com/file/d/1fW5KR9a3Wpi0U6mbrdy484tXGDHTwa_j/view?usp=drive_link" target="_blank" className="text-muted-foreground hover:text-primary transition-colors hover-glow">
+                      <Coffee className="w-6 h-6" />
+                    </a>
+                  </div>
+                </div>
+
+                <Card className="bg-card border-border">
+                  <CardHeader>
+                    <CardTitle className="flex items-center text-foreground">
+                      <MessageSquare className="w-5 h-5 mr-2 text-primary" />
+                      Send Me a Message
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <form className="space-y-4">
+                      <div>
+                        <Input placeholder="Your Name" className="bg-secondary border-border text-foreground" />
+                      </div>
+                      <div>
+                        <Input type="email" placeholder="Your Email" className="bg-secondary border-border text-foreground" />
+                      </div>
+                      <div>
+                        <Input placeholder="Subject" className="bg-secondary border-border text-foreground" />
+                      </div>
+                      <div>
+                        <Textarea placeholder="Your Message" rows={4} className="bg-secondary border-border text-foreground" />
+                      </div>
+                      <Button className="w-full bg-primary hover:bg-primary/90 text-white hover-glow">
+                        Send Message
+                      </Button>
+                    </form>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </section>
+
+          {/* Footer */}
+          <footer className="bg-card border-t border-border py-8 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto text-center">
+              <p className="text-muted-foreground">
+                © 2025 Sandeep Muhal.
+              </p>
+            </div>
+          </footer>
         </div>
       )}
     </div>

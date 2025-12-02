@@ -281,7 +281,7 @@ function App() {
                 {/* Profile Image */}
                 <div className="w-40 h-40 profile-glow rounded-full mx-auto mb-8 bg-gradient-to-br from-primary to-accent pulse-glow overflow-hidden">
                   <img
-                    src="images/profile.jpg"
+                    src="images/profile_pna.jpg"
                     alt="Sandeep Muhal"
                     className="w-full h-full object-cover"
                   />
@@ -300,7 +300,7 @@ function App() {
                   <span className="text-chart-3">Web Developer</span>
                 </p>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-                  👨‍💻 Python, Machine Learning, Data Science & Web Development 🚗 Built
+                  👨‍💻 Python, Machine Learning,Deep learning, Data Science & Web Development 🚗 Built
                   solutions for recommendation systems, spam detection, and data
                   analysis. ⚡ Turning ideas into reality with code!
                 </p>

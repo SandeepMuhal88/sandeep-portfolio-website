@@ -6,6 +6,7 @@ This is my personal portfolio website built using **React**, **Vite**, **Tailwin
 
 - React 19
 - Vite
+- gh-pages
 - TailwindCSS
 - ShadCN (Radix + Lucide)
 - Framer Motion

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { personalInfo } from '../../data/resumeData'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sun, Moon } from 'lucide-react'
+import { useTheme } from '../../App.jsx'
 
 const NAV_LINKS = [
     { id: 'home', label: 'Home' },
@@ -15,6 +16,7 @@ const NAV_LINKS = [
 export default function Navbar({ activeSection, onNav }) {
     const [scrolled, setScrolled] = useState(false)
     const [open, setOpen] = useState(false)
+    const { theme, toggleTheme } = useTheme()
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20)
@@ -54,15 +56,31 @@ export default function Navbar({ activeSection, onNav }) {
                     ))}
                 </div>
 
-                {/* Mobile toggle */}
-                <button
-                    className="nav-toggle"
-                    onClick={() => setOpen(!open)}
-                    aria-label={open ? 'Close menu' : 'Open menu'}
-                    aria-expanded={open}
-                >
-                    {open ? <X size={22} /> : <Menu size={22} />}
-                </button>
+                <div className="nav-right">
+                    {/* Theme toggle */}
+                    <button
+                        className="theme-toggle"
+                        onClick={toggleTheme}
+                        aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+                        title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+                        id="theme-toggle-btn"
+                    >
+                        {theme === 'dark'
+                            ? <Sun size={18} className="theme-icon theme-icon--sun" />
+                            : <Moon size={18} className="theme-icon theme-icon--moon" />
+                        }
+                    </button>
+
+                    {/* Mobile toggle */}
+                    <button
+                        className="nav-toggle"
+                        onClick={() => setOpen(!open)}
+                        aria-label={open ? 'Close menu' : 'Open menu'}
+                        aria-expanded={open}
+                    >
+                        {open ? <X size={22} /> : <Menu size={22} />}
+                    </button>
+                </div>
             </div>
 
             {/* Mobile drawer */}

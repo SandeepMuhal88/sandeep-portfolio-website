@@ -1,10 +1,27 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sandeep Muhal - Portfolio</title>
+  <title>Sandeep Muhal — AI/ML Engineer & Data Scientist Portfolio</title>
+  <meta name="description"
+    content="Sandeep Muhal is an AI/ML Engineer and Data Scientist specializing in Machine Learning, Deep Learning, LLMs, Computer Vision, and FastAPI deployments." />
+  <meta name="keywords"
+    content="AI Engineer, ML Engineer, Data Scientist, Machine Learning, Deep Learning, LLM, RAG, Computer Vision, FastAPI, Flutter, Portfolio" />
+  <meta name="author" content="Sandeep Muhal" />
+  <meta property="og:title" content="Sandeep Muhal — AI/ML Engineer & Data Scientist" />
+  <meta property="og:description" content="Building intelligent AI systems from research to production." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script>
+    // Apply saved theme before React mounts to avoid flash
+    (function () {
+      const saved = localStorage.getItem('portfolio-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
 </head>
 
 <body>

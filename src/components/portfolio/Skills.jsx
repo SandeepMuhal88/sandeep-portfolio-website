@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { skillCategories } from '../../data/resumeData'
 import { Cpu } from 'lucide-react'
+import { useScrollReveal } from '../../hooks/useAnimations.js'
 
 const COLOR_MAP = {
     blue: { primary: '#00d4ff', glow: 'rgba(0,212,255,0.3)', bg: 'rgba(0,212,255,0.07)' },

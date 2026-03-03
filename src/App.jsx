@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, createContext, useContext } from 'react'
 import Navbar from './components/portfolio/Navbar.jsx'
 import Hero from './components/portfolio/Hero.jsx'
 import About from './components/portfolio/About.jsx'
@@ -10,10 +10,29 @@ import Contact from './components/portfolio/Contact.jsx'
 import Footer from './components/portfolio/Footer.jsx'
 import './portfolio.css'
 
+export const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => { } })
+
+export function useTheme() {
+  return useContext(ThemeContext)
+}
+
 const SECTIONS = ['home', 'about', 'skills', 'projects', 'education', 'achievements', 'contact']
 
 export default function App() {
   const [activeSection, setActiveSection] = useState('home')
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem('portfolio-theme') || 'dark'
+  })
+
+  // Apply theme to document root
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('portfolio-theme', theme)
+  }, [theme])
+
+  const toggleTheme = useCallback(() => {
+    setTheme(t => t === 'dark' ? 'light' : 'dark')
+  }, [])
 
   // Track active section on scroll
   useEffect(() => {
@@ -41,18 +60,20 @@ export default function App() {
   }, [])
 
   return (
-    <div className="portfolio-root">
-      <Navbar activeSection={activeSection} onNav={scrollTo} />
-      <main>
-        <Hero onNav={scrollTo} />
-        <About />
-        <Skills />
-        <Projects />
-        <Education />
-        <Achievements />
-        <Contact />
-      </main>
-      <Footer onNav={scrollTo} />
-    </div>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <div className="portfolio-root" data-theme={theme}>
+        <Navbar activeSection={activeSection} onNav={scrollTo} />
+        <main>
+          <Hero onNav={scrollTo} />
+          <About />
+          <Skills />
+          <Projects />
+          <Education />
+          <Achievements />
+          <Contact />
+        </main>
+        <Footer onNav={scrollTo} />
+      </div>
+    </ThemeContext.Provider>
   )
 }

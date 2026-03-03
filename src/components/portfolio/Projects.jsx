@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { projects } from '../../data/resumeData'
 import { Github, ExternalLink, ChevronDown, ChevronUp, Layers } from 'lucide-react'
-import { useScrollReveal } from '../../hooks/useAnimations.js'
 
 const CATEGORIES = ['All', 'Computer Vision', 'Medical AI', 'ML Deployment', 'LLMs & NLP', 'Machine Learning', 'NLP', 'Deep Learning']
 

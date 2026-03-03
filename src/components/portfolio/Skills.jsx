@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { skillCategories } from '../../data/resumeData'
-import { useScrollReveal } from '../../hooks/useAnimations.js'
 import { Cpu } from 'lucide-react'
 
 const COLOR_MAP = {

@@ -18,7 +18,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: "/sandeep-portfolio-website/", // ✅ This is the correct path
+  // base: "/sandeep-portfolio-website/", // Only needed for GitHub Pages deploy
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

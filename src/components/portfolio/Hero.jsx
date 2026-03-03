@@ -102,7 +102,7 @@ export default function Hero({ onNav }) {
 
                     {/* CTA */}
                     <div className="hero-cta">
-                        <button className="btn-3d btn-3d--primary" onClick={() => onNav('projects')} id="hero-explore-btn">
+                        <button className="btn-3d btn-3d--primary" onClick={() => onNav('skills')} id="hero-explore-btn">
                             <span>Explore My Work</span>
                         </button>
                         <a className="btn-3d btn-3d--outline" href={personalInfo.resume} target="_blank" rel="noopener noreferrer" id="hero-resume-btn">

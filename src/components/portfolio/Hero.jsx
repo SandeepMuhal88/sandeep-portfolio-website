@@ -101,11 +101,42 @@ export default function Hero({ onNav }) {
                     <p className="hero-summary">{personalInfo.summary.slice(0, 190)}…</p>
 
                     {/* CTA */}
-                    <div className="hero-cta">
-                        <button className="btn-3d btn-3d--primary" onClick={() => onNav('skills')} id="hero-explore-btn">
+                    {/* <div className="hero-cta">
+                        <button className="btn-3d btn-3d--primary" onClick={() => onNav('projects')} id="hero-explore-btn">
                             <span>Explore My Work</span>
                         </button>
                         <a className="btn-3d btn-3d--outline" href={personalInfo.resume} target="_blank" rel="noopener noreferrer" id="hero-resume-btn">
+                            <Download size={15} />
+                            <span>Download CV</span>
+                        </a>
+                    </div> */}
+                    <div className="hero-cta" style={{ position: 'relative', zIndex: 10 }}>
+                        {/* Explore My Work: Scroll to Projects */}
+                        <button
+                            className="btn-3d btn-3d--primary"
+                            onClick={() => {
+                                const projectSection = document.getElementById('projects');
+                                if (projectSection) {
+                                    projectSection.scrollIntoView({ behavior: 'smooth' });
+                                } else {
+                                    // Agar aap onNav use karna chahte hain
+                                    onNav('projects');
+                                }
+                            }}
+                            id="hero-explore-btn"
+                        >
+                            <span>Explore My Work</span>
+                        </button>
+
+                        {/* Download CV: Google Drive Link */}
+                        <a
+                            className="btn-3d btn-3d--outline"
+                            href={personalInfo.resume}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            id="hero-resume-btn"
+                            style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+                        >
                             <Download size={15} />
                             <span>Download CV</span>
                         </a>

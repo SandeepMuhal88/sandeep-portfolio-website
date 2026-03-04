@@ -449,19 +449,7 @@ img {
   color: var(--cyan);
 }
 
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: flex;
-  }
-
-  .nav-drawer {
-    display: flex;
-  }
-}
+/* Navbar responsive rules are handled in the full breakpoint system at EOF */
 
 /* =====================================================
    SECTION SHARED
@@ -2257,14 +2245,551 @@ img {
 }
 
 /* =====================================================
-   RESPONSIVE UTILITIES
+   RESPONSIVE UTILITIES — Full Breakpoint System
+   Mobile ≤ 480px | Tablet ≤ 768px | Sm-Desktop ≤ 1024px
    ===================================================== */
-@media (max-width: 480px) {
+
+/* ── Small Desktop / Large Tablet (≤ 1024px) ────────── */
+@media (max-width: 1024px) {
+  .nav-container {
+    padding: 0 20px;
+  }
+
   .section {
-    padding: 80px 18px;
+    padding: 90px 24px;
+  }
+
+  .hero-content {
+    gap: 40px;
+  }
+
+  .hero-card-3d {
+    flex: 1 1 420px;
+  }
+
+  .hero-avatar-3d {
+    width: 240px;
+    height: 240px;
+  }
+
+  .avatar-core {
+    width: 155px;
+    height: 155px;
+  }
+
+  .avatar-ring-1 {
+    width: 220px;
+    height: 220px;
+  }
+
+  .avatar-ring-2 {
+    width: 188px;
+    height: 188px;
+  }
+
+  .avatar-ring-3 {
+    width: 252px;
+    height: 252px;
+  }
+
+  .about-grid {
+    gap: 40px;
+  }
+
+  .skills-grid-3d {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .projects-grid-3d {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  .footer-top {
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 32px;
+  }
+
+  .contact-grid-3d {
+    gap: 36px;
+  }
+}
+
+/* ── Tablet (≤ 768px) ───────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* ---- Navbar ---- */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-drawer {
+    display: flex;
+  }
+
+  .nav-container {
+    padding: 0 16px;
+  }
+
+  /* ---- Section shared ---- */
+  .section {
+    padding: 80px 20px;
+  }
+
+  .section-header {
+    margin-bottom: 44px;
+  }
+
+  .ds-title {
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  }
+
+  /* ---- Hero ---- */
+  .hero-section {
+    padding: var(--nav-h) 20px 50px;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .hero-card-3d {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+
+  .hero-name-outline,
+  .hero-name-filled {
+    display: inline;
+  }
+
+  .hero-cta,
+  .hero-socials {
+    justify-content: center;
+  }
+
+  .hero-summary {
+    margin: 0 auto 30px;
+  }
+
+  .hero-avatar-3d {
+    width: 200px;
+    height: 200px;
+  }
+
+  .avatar-core {
+    width: 130px;
+    height: 130px;
+  }
+
+  .avatar-ring-1 {
+    width: 185px;
+    height: 185px;
+  }
+
+  .avatar-ring-2 {
+    width: 158px;
+    height: 158px;
+  }
+
+  .avatar-ring-3 {
+    width: 215px;
+    height: 215px;
+  }
+
+  /* ---- About ---- */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* ---- Skills ---- */
+  .skills-grid-3d {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+  }
+
+  /* ---- Projects ---- */
+  .project-filters-3d {
+    gap: 6px;
+    margin-bottom: 36px;
+  }
+
+  .filter-chip {
+    padding: 6px 13px;
+    font-size: 0.74rem;
+  }
+
+  .projects-grid-3d {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-card-3d {
+    padding: 22px;
+  }
+
+  /* ---- Education ---- */
+  .edu-inner {
+    padding: 28px 22px;
+  }
+
+  .edu-top-row {
+    flex-direction: column;
+  }
+
+  .edu-degree-3d {
+    font-size: 1.15rem;
+  }
+
+  /* ---- Achievements ---- */
+  .ach-card {
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .ach-num {
+    font-size: 1.4rem;
+  }
+
+  /* ---- Contact ---- */
+  .contact-grid-3d {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-info-card {
+    padding: 24px;
+  }
+
+  .contact-form-3d {
+    padding: 24px;
+  }
+
+  .ds-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* ---- Footer ---- */
+  .footer {
+    padding: 40px 20px 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+}
+
+/* ── Mobile (≤ 480px) ───────────────────────────────── */
+@media (max-width: 480px) {
+
+  /* ---- Root tweaks ---- */
+  :root {
+    --nav-h: 60px;
+  }
+
+  /* ---- Navbar ---- */
+  .nav-brand {
+    font-size: 1rem;
+  }
+
+  .brand-dot {
+    width: 7px;
+    height: 7px;
+  }
+
+  .nav-drawer {
+    padding: 10px 16px 18px;
+  }
+
+  /* ---- Section ---- */
+  .section {
+    padding: 70px 16px;
+  }
+
+  .section-header {
+    margin-bottom: 36px;
+  }
+
+  .ds-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* ---- Hero ---- */
+  .hero-section {
+    padding: var(--nav-h) 16px 44px;
   }
 
   .hero-name {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 9vw, 3.2rem);
+    margin-bottom: 16px;
+  }
+
+  .hero-badge {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+  }
+
+  .hero-role {
+    font-size: clamp(0.85rem, 3.5vw, 1rem);
+  }
+
+  .hero-summary {
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btn-3d {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 0.88rem;
+  }
+
+  .hero-avatar-3d {
+    width: 165px;
+    height: 165px;
+  }
+
+  .avatar-core {
+    width: 108px;
+    height: 108px;
+  }
+
+  .avatar-ring-1 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .avatar-ring-2 {
+    width: 126px;
+    height: 126px;
+  }
+
+  .avatar-ring-3 {
+    width: 175px;
+    height: 175px;
+  }
+
+  /* Reduce orbit radius on small screens */
+  @keyframes orbit-1 {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(90px) rotate(-360deg);
+    }
+  }
+
+  @keyframes orbit-2 {
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg) translateX(70px) rotate(360deg);
+    }
+  }
+
+  @keyframes orbit-3 {
+    to {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(80px) rotate(-360deg);
+    }
+  }
+
+  /* ---- About ---- */
+  .about-heading {
+    font-size: 1.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-card-3d {
+    padding: 16px 12px;
+  }
+
+  .stat-value-3d {
+    font-size: 1.7rem;
+  }
+
+  .expertise-card-3d {
+    padding: 16px;
+  }
+
+  /* ---- Skills ---- */
+  .skills-grid-3d {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card-3d {
+    padding: 18px;
+  }
+
+  /* ---- Projects ---- */
+  .project-filters-3d {
+    gap: 6px;
+  }
+
+  .filter-chip {
+    padding: 5px 11px;
+    font-size: 0.72rem;
+  }
+
+  .projects-grid-3d {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-3d {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .project-actions-3d {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ---- Education ---- */
+  .edu-inner {
+    padding: 20px 16px;
+  }
+
+  .edu-degree-3d {
+    font-size: 1.05rem;
+  }
+
+  .edu-uni-3d {
+    font-size: 0.88rem;
+  }
+
+  .edu-meta-row {
+    gap: 8px;
+  }
+
+  /* ---- Achievements ---- */
+  .achievements-3d {
+    gap: 12px;
+  }
+
+  .ach-card {
+    padding: 16px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .ach-num {
+    font-size: 1.2rem;
+    min-width: 28px;
+  }
+
+  .ach-text {
+    font-size: 0.85rem;
+  }
+
+  /* ---- Contact ---- */
+  .contact-info-card {
+    padding: 18px;
+  }
+
+  .contact-form-3d {
+    padding: 18px;
+  }
+
+  .contact-form-title,
+  .contact-info-title {
+    font-size: 1rem;
+  }
+
+  .ds-submit-btn {
+    padding: 12px;
+    font-size: 0.88rem;
+  }
+
+  /* ---- Footer ---- */
+  .footer {
+    padding: 36px 16px 20px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .footer-tagline {
+    font-size: 0.78rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.72rem;
+  }
+}
+
+/* ── Extra-small mobile (≤ 360px) ───────────────────── */
+@media (max-width: 360px) {
+  .hero-name {
+    font-size: clamp(1.7rem, 8vw, 2.5rem);
+  }
+
+  .hero-avatar-3d {
+    width: 140px;
+    height: 140px;
+  }
+
+  .avatar-core {
+    width: 92px;
+    height: 92px;
+  }
+
+  .avatar-ring-1 {
+    width: 128px;
+    height: 128px;
+  }
+
+  .avatar-ring-2 {
+    width: 108px;
+    height: 108px;
+  }
+
+  .avatar-ring-3 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .btn-3d {
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 }

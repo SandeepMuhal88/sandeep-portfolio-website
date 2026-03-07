@@ -15,7 +15,7 @@ export const personalInfo = {
     instagram: "https://www.instagram.com/i_sandeepmuhal8/",
     youtube: "https://www.youtube.com/@sandeepmuhal88",
     twitter: "https://x.com/i_sandeepmuhal8",
-    resume: "https://drive.google.com/file/d/1c_LgqyCoh_Yb96aJqfuXd1tLikbA5h_D/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1jInL8ahnJvAlakFFSSd9Dxh-iSkvjZCN/view?usp=sharing",
     summary:
         "Machine Learning & Deep Learning engineer with hands-on experience in LLMs, Transformers, LangChain, FastAPI, RAG pipelines, NLP, Computer Vision, and Mobile AI Integration using Flutter. Skilled in building end-to-end ML pipelines, model deployment using FastAPI & Docker, and full-stack AI application development.",
     roles: [

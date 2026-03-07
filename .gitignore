@@ -4,9 +4,9 @@ dist/
 # Node modules
 node_modules/
 
-# Optional: lockfile (you’re using pnpm)
-package-lock.json
+# Lockfiles — keep package-lock.json committed for reproducible deploys
 yarn.lock
+pnpm-lock.yaml
 
 # System & editor junk
 .DS_Store

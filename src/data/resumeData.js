@@ -4,7 +4,7 @@
 
 export const personalInfo = {
     name: "Sandeep Muhal",
-    title: "ML & Deep Learning Engineer",
+    title: "Data Scientist & AI Engineer",
     location: "Kishangarh, Ajmer, Rajasthan",
     email: "sandeepmuhal8840@gmail.com",
     phone: "+91 7879496344",
@@ -17,10 +17,12 @@ export const personalInfo = {
     twitter: "https://x.com/i_sandeepmuhal8",
     resume: "https://drive.google.com/file/d/1jInL8ahnJvAlakFFSSd9Dxh-iSkvjZCN/view?usp=sharing",
     summary:
-        "Machine Learning & Deep Learning engineer with hands-on experience in LLMs, Transformers, LangChain, FastAPI, RAG pipelines, NLP, Computer Vision, and Mobile AI Integration using Flutter. Skilled in building end-to-end ML pipelines, model deployment using FastAPI & Docker, and full-stack AI application development.",
+        "Data Scientist & AI Engineer specializing in LLMs, Transformers, RAG pipelines, Computer Vision, and on-device AI. I build end-to-end intelligent systems — from model research and fine-tuning to production deployment via FastAPI, Docker, and Flutter — with a focus on trustworthy, reliable AI.",
     roles: [
+        "Data Scientist & AI Engineer",
+        "LLM & On-Device AI Specialist",
         "ML & Deep Learning Engineer",
-        "LLM & NLP Specialist",
+        "RAG Pipeline Architect",
         "FastAPI & Docker Developer",
         "Flutter AI App Builder",
     ],
@@ -96,6 +98,41 @@ export const skillCategories = [
 ];
 
 export const projects = [
+    {
+        title: "RAMA AI – Local LLM Inference on Android",
+        description:
+            "A fully offline, zero-cloud LLM inference Android application capable of running quantized language models directly on-device. Integrated llama.cpp via Dart FFI for native C++ inference inside Flutter, enabling low-memory GGUF-quantized model support on mid-range Android hardware with real-time token streaming.",
+        tech: ["Flutter", "llama.cpp", "Dart FFI", "GGUF", "SQLite", "Provider"],
+        highlights: [
+            "Fully offline on-device LLM inference — zero cloud dependency",
+            "llama.cpp integrated via Dart FFI for native C++ performance",
+            "GGUF-quantized LLaMA model support on mid-range Android",
+            "Multi-turn chat with SQLite-backed history & Provider state",
+            "Async token streaming for smooth real-time text generation",
+            "Full technical docs: architecture diagrams & academic literature review",
+        ],
+        github: "https://github.com/SandeepMuhal88",
+        demo: "https://github.com/SandeepMuhal88",
+        featured: true,
+        category: "Mobile AI",
+    },
+    {
+        title: "Trustworthy AI Assistant",
+        description:
+            "An AI assistant framework focused on safety, reliability, and transparent reasoning. Applied prompt engineering and system-level guardrails to reduce hallucinations, implemented response validation pipelines with confidence scoring, and deployed via FastAPI with full logging and monitoring hooks for responsible AI usage tracking.",
+        tech: ["Python", "LLM Fine-tuning", "RLHF", "Prompt Engineering", "FastAPI"],
+        highlights: [
+            "Prompt engineering & system guardrails to reduce hallucinations",
+            "Response validation pipelines with confidence scoring & fallback",
+            "Structured output formats with citation-aware generation",
+            "RLHF concepts applied for safety and reliable reasoning",
+            "FastAPI deployment with logging & monitoring for responsible AI",
+        ],
+        github: "https://github.com/SandeepMuhal88",
+        demo: "https://github.com/SandeepMuhal88",
+        featured: true,
+        category: "Responsible AI",
+    },
     {
         title: "Potato Disease Detection System",
         description:
@@ -236,7 +273,9 @@ export const projects = [
 ];
 
 export const achievements = [
-    "Completed 10+ ML/DL & LLM-based projects with working demos and GitHub repositories.",
+    "Completed 12+ ML/DL, LLM, and on-device AI projects with working demos and GitHub repositories.",
+    "Built RAMA AI — a fully offline, on-device LLM inference Android app using llama.cpp & Dart FFI.",
+    "Designed Trustworthy AI Assistant with RLHF concepts, confidence scoring, and responsible AI monitoring.",
     "Active contributor on Kaggle, improving rank through competitions.",
     "Built production-ready end-to-end AI apps integrating FastAPI backend + Flutter frontend.",
     "Implemented RAG pipelines using LangChain, FAISS, and transformer embeddings.",

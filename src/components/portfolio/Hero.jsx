@@ -4,10 +4,12 @@ import NeuralBackground from './NeuralBackground.jsx'
 import { Github, Linkedin, Mail, Phone, Download, ChevronDown, Brain } from 'lucide-react'
 
 const ROLES = [
+    'Data Scientist & AI Engineer',
+    'LLM & On-Device AI Specialist',
     'Machine Learning Engineer',
+    'RAG Pipeline Architect',
     'Deep Learning Specialist',
-    'LLM & RAG Architect',
-    'Computer Vision Engineer',
+    'Responsible AI Developer',
     'FastAPI & Docker Developer',
     'Flutter AI App Builder',
 ]
@@ -15,7 +17,8 @@ const ROLES = [
 const FLOATING_WORDS = [
     'Python', 'PyTorch', 'TensorFlow', 'LangChain', 'FAISS',
     'FastAPI', 'Docker', 'RAG', 'CNN', 'LSTM', 'BERT', 'GPT',
-    'LLaMA', 'Flutter', 'Scikit-learn', 'HuggingFace', 'OpenCV',
+    'LLaMA', 'Flutter', 'llama.cpp', 'GGUF', 'RLHF', 'Scikit-learn',
+    'HuggingFace', 'OpenCV', 'SQLite', 'Dart FFI',
 ]
 
 export default function Hero({ onNav }) {
@@ -82,7 +85,7 @@ export default function Hero({ onNav }) {
                     <div className="hero-badge">
                         <Brain size={13} />
                         <span className="hero-badge-dot" />
-                        Available for AI/ML roles
+                        Data Scientist & AI Engineer · Open to Roles
                     </div>
 
                     <p className="hero-greeting">Hello, I'm</p>

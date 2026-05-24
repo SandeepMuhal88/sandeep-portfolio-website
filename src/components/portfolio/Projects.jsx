@@ -3,9 +3,11 @@ import { projects } from '../../data/resumeData'
 import { Github, ExternalLink, ChevronDown, ChevronUp, Layers } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useAnimations.js'
 
-const CATEGORIES = ['All', 'Computer Vision', 'Medical AI', 'ML Deployment', 'LLMs & NLP', 'Machine Learning', 'NLP', 'Deep Learning']
+const CATEGORIES = ['All', 'Mobile AI', 'Responsible AI', 'Computer Vision', 'Medical AI', 'ML Deployment', 'LLMs & NLP', 'Machine Learning', 'NLP', 'Deep Learning']
 
 const CAT_ICONS = {
+    'Mobile AI': '📱',
+    'Responsible AI': '🛡️',
     'Computer Vision': '👁️',
     'Medical AI': '🧬',
     'ML Deployment': '🚀',
@@ -16,8 +18,10 @@ const CAT_ICONS = {
 }
 
 const CAT_COLORS = {
+    'Mobile AI': '#06ffa5',
+    'Responsible AI': '#f59e0b',
     'Computer Vision': '#00d4ff',
-    'Medical AI': '#06ffa5',
+    'Medical AI': '#10b981',
     'ML Deployment': '#f97316',
     'LLMs & NLP': '#a855f7',
     'Machine Learning': '#3b82f6',
@@ -111,8 +115,8 @@ export default function Projects() {
             <div className="section-container">
                 <div ref={headRef} className={`section-header ${headVis ? 'reveal' : ''}`}>
                     <span className="ds-label"><Layers size={12} /> My Work</span>
-                    <h2 className="ds-title">AI/ML Projects</h2>
-                    <p className="section-subtitle">End-to-end systems spanning Computer Vision, NLP, LLMs & more</p>
+                    <h2 className="ds-title">Data Science & AI Projects</h2>
+                    <p className="section-subtitle">End-to-end intelligent systems — from on-device LLMs & responsible AI to Computer Vision, NLP & production deployment</p>
                 </div>
 
                 {/* Filters */}

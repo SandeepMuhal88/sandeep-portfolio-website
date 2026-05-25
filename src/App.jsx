@@ -18,17 +18,61 @@ export function useTheme() {
 
 const SECTIONS = ['home', 'about', 'skills', 'projects', 'education', 'achievements', 'contact']
 
+function ScrollProgressBar() {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const scrolled = window.scrollY
+      setProgress(docHeight > 0 ? (scrolled / docHeight) * 100 : 0)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  return (
+    <div
+      className="scroll-progress-bar"
+      style={{ width: `${progress}%` }}
+      role="progressbar"
+      aria-valuenow={Math.round(progress)}
+      aria-valuemin={0}
+      aria-valuemax={100}
+    />
+  )
+}
+
+function LoadingScreen() {
+  return (
+    <div className="loading-screen" aria-hidden="true">
+      <div className="loading-logo">SM</div>
+      <div className="loading-bar">
+        <div className="loading-bar-fill" />
+      </div>
+      <div className="loading-text">Initializing…</div>
+    </div>
+  )
+}
+
 export default function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem('portfolio-theme') || 'dark'
   })
+  const [loaded, setLoaded] = useState(false)
 
   // Apply theme to document root
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme)
     localStorage.setItem('portfolio-theme', theme)
   }, [theme])
+
+  // Hide loading screen after 2s
+  useEffect(() => {
+    const t = setTimeout(() => setLoaded(true), 2200)
+    return () => clearTimeout(t)
+  }, [])
 
   const toggleTheme = useCallback(() => {
     setTheme(t => t === 'dark' ? 'light' : 'dark')
@@ -62,6 +106,8 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="portfolio-root" data-theme={theme}>
+        <LoadingScreen />
+        <ScrollProgressBar />
         <Navbar activeSection={activeSection} onNav={scrollTo} />
         <main>
           <Hero onNav={scrollTo} />

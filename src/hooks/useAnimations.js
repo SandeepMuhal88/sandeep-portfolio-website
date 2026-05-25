@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
  * useScrollReveal — returns [ref, isVisible]
  * Fires once when the element enters the viewport.
  */
-export function useScrollReveal(threshold = 0.15) {
+export function useScrollReveal(threshold = 0.05) {
     const ref = useRef(null)
     const [visible, setVisible] = useState(false)
 

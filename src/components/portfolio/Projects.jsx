@@ -134,6 +134,7 @@ function ProjectCard({ project, index, visible }) {
 export default function Projects() {
   const [filter, setFilter] = useState('All')
   const [headRef, headVis] = useScrollReveal()
+  const [featuredRef, featuredVis] = useScrollReveal()
   const [gridRef, gridVis] = useScrollReveal()
 
   const featured = projects.filter(p => p.featured)
@@ -168,9 +169,9 @@ export default function Projects() {
 
         {/* Featured projects — 2-column spotlight */}
         {filteredFeatured.length > 0 && (
-          <div className="projects-featured-row">
+          <div ref={featuredRef} className="projects-featured-row">
             {filteredFeatured.map((p, i) => (
-              <ProjectCard key={p.title} project={p} index={i} visible={gridVis} />
+              <ProjectCard key={p.title} project={p} index={i} visible={featuredVis} />
             ))}
           </div>
         )}

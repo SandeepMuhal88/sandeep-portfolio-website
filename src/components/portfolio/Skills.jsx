@@ -4,14 +4,14 @@ import { Cpu } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useAnimations.js'
 
 const COLOR_MAP = {
-  blue:   { primary: '#00d4ff', glow: 'rgba(0,212,255,0.3)',   bg: 'rgba(0,212,255,0.07)' },
-  purple: { primary: '#a855f7', glow: 'rgba(168,85,247,0.3)',  bg: 'rgba(168,85,247,0.07)' },
-  cyan:   { primary: '#06b6d4', glow: 'rgba(6,182,212,0.3)',   bg: 'rgba(6,182,212,0.07)' },
-  violet: { primary: '#8b5cf6', glow: 'rgba(139,92,246,0.3)',  bg: 'rgba(139,92,246,0.07)' },
-  green:  { primary: '#06ffa5', glow: 'rgba(6,255,165,0.3)',   bg: 'rgba(6,255,165,0.07)' },
-  orange: { primary: '#f97316', glow: 'rgba(249,115,22,0.3)',  bg: 'rgba(249,115,22,0.07)' },
-  pink:   { primary: '#ec4899', glow: 'rgba(236,72,153,0.3)',  bg: 'rgba(236,72,153,0.07)' },
-  yellow: { primary: '#eab308', glow: 'rgba(234,179,8,0.3)',   bg: 'rgba(234,179,8,0.07)' },
+  blue:   { primary: '#a78bfa', glow: 'rgba(167,139,250,0.32)', bg: 'rgba(167,139,250,0.07)' },
+  purple: { primary: '#c084fc', glow: 'rgba(192,132,252,0.32)', bg: 'rgba(192,132,252,0.07)' },
+  cyan:   { primary: '#06b6d4', glow: 'rgba(6,182,212,0.32)',   bg: 'rgba(6,182,212,0.07)' },
+  violet: { primary: '#818cf8', glow: 'rgba(129,140,248,0.32)', bg: 'rgba(129,140,248,0.07)' },
+  green:  { primary: '#34d399', glow: 'rgba(52,211,153,0.32)',  bg: 'rgba(52,211,153,0.07)' },
+  orange: { primary: '#fb923c', glow: 'rgba(251,146,60,0.32)',  bg: 'rgba(251,146,60,0.07)' },
+  pink:   { primary: '#f472b6', glow: 'rgba(244,114,182,0.32)', bg: 'rgba(244,114,182,0.07)' },
+  yellow: { primary: '#fbbf24', glow: 'rgba(251,191,36,0.32)',  bg: 'rgba(251,191,36,0.07)' },
 }
 
 const PROFICIENCY = {
@@ -25,19 +25,46 @@ const PROFICIENCY = {
   'Tools & Visualization':   83,
 }
 
+/* ── Real Tech Logo URLs using devicons CDN ── */
+const TECH_LOGOS = [
+  { name: 'Python',       url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+  { name: 'PyTorch',      url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+  { name: 'TensorFlow',   url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+  { name: 'Docker',       url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+  { name: 'Git',          url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+  { name: 'GitHub',       url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+  { name: 'JavaScript',   url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+  { name: 'Flutter',      url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg' },
+  { name: 'Dart',         url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg' },
+  { name: 'C++',          url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg' },
+  { name: 'C',            url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg' },
+  { name: 'Jupyter',      url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg' },
+  { name: 'VS Code',      url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+  { name: 'NumPy',        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg' },
+  { name: 'Pandas',       url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
+  { name: 'Scikit-learn', url: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
+  { name: 'OpenCV',       url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg' },
+  { name: 'SQLite',       url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg' },
+  { name: 'FastAPI',      url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
+  { name: 'Streamlit',    url: 'https://streamlit.io/images/brand/streamlit-mark-color.svg' },
+  { name: 'Keras',        url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg' },
+  { name: 'Linux',        url: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg' },
+  { name: 'Matplotlib',   url: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg' },
+  { name: 'HuggingFace',  url: 'https://huggingface.co/front/assets/huggingface_logo-noborder.svg' },
+]
+
 function SkillCard({ cat, index, color, visible }) {
   const cardRef = useRef(null)
   const pct = PROFICIENCY[cat.category] || 75
 
-  // 3D tilt on mouse move
   const handleMouseMove = (e) => {
     const card = cardRef.current
     if (!card) return
     const rect = card.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20
-    const y = -((e.clientY - rect.top) / rect.height - 0.5) * 20
-    card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-8px) scale(1.02)`
-    card.style.boxShadow = `0 20px 60px rgba(0,0,0,0.4), 0 0 40px ${color.glow}`
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 22
+    const y = -((e.clientY - rect.top) / rect.height - 0.5) * 22
+    card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-10px) scale(1.02)`
+    card.style.boxShadow = `0 24px 60px rgba(0,0,0,0.5), 0 0 40px ${color.glow}`
   }
 
   const handleMouseLeave = () => {
@@ -57,7 +84,7 @@ function SkillCard({ cat, index, color, visible }) {
         '--cbg': color.bg,
         '--pct': `${pct}%`,
         animationDelay: `${index * 0.07}s`,
-        transition: 'transform 0.15s ease, box-shadow 0.15s ease, border-color 0.3s, opacity 0.6s ease, translateY 0.6s ease',
+        transition: 'transform 0.15s ease, box-shadow 0.15s ease, border-color 0.3s, opacity 0.6s ease',
       }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -74,7 +101,7 @@ function SkillCard({ cat, index, color, visible }) {
         <div className="skill-pct-label">{pct}%</div>
       </div>
 
-      {/* Shimmer progress bar */}
+      {/* Progress bar */}
       <div className="skill-progress-track">
         <div
           className="skill-progress-fill"
@@ -108,6 +135,7 @@ function SkillCard({ cat, index, color, visible }) {
 
 export default function Skills() {
   const [headRef, headVis] = useScrollReveal()
+  const [logosRef, logosVis] = useScrollReveal()
   const [gridRef, gridVis] = useScrollReveal()
 
   return (
@@ -117,9 +145,33 @@ export default function Skills() {
         <div ref={headRef} className={`section-header ${headVis ? 'reveal' : ''}`}>
           <span className="ds-label"><Cpu size={12} /> Tech Stack</span>
           <h2 className="ds-title">Technical Arsenal</h2>
-          <p className="section-subtitle">Full spectrum of ML/AI/backend skills — hover cards for 3D depth</p>
+          <p className="section-subtitle">Full spectrum of ML/AI/backend skills — real logos, 3D cards, hover for depth</p>
         </div>
 
+        {/* ── Real Tech Logos Row ── */}
+        <div ref={logosRef} className={`skill-logos-section ${logosVis ? 'reveal' : ''}`}>
+          <div className="skill-logos-title">⚡ Core Technologies</div>
+          <div className="skill-logos-grid">
+            {TECH_LOGOS.map((tech, i) => (
+              <div
+                key={tech.name}
+                className="skill-logo-item"
+                style={{ animationDelay: `${i * 0.04}s` }}
+                title={tech.name}
+              >
+                <img
+                  src={tech.url}
+                  alt={tech.name}
+                  loading="lazy"
+                  onError={e => { e.target.style.display = 'none' }}
+                />
+                <span className="skill-logo-name">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── 3D Skill Cards ── */}
         <div ref={gridRef} className="skills-grid-3d">
           {skillCategories.map((cat, i) => (
             <SkillCard

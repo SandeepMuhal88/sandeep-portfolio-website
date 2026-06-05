@@ -1,85 +1,78 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { achievements } from '../../data/resumeData'
 import { Trophy } from 'lucide-react'
+import { useScrollReveal } from '../../hooks/useAnimations.js'
 
 const ICONS  = ['🏆', '📈', '⚡', '🔬', '🐳', '🤖', '🚀']
-const COLORS = ['#00d4ff', '#a855f7', '#06ffa5', '#f97316', '#ec4899', '#f59e0b', '#6366f1']
-
-function AchEntry({ ach, index, color, icon }) {
-  const ref = useRef(null)
-  const [visible, setVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.2 }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [])
-
-  return (
-    <div
-      ref={ref}
-      className={`ach-entry ${visible ? 'visible' : ''}`}
-      style={{ '--ach-color': color, transitionDelay: `${index * 0.12}s` }}
-    >
-      {/* Left/right card */}
-      <div className="ach-card">
-        <div className="ach-num">{String(index + 1).padStart(2, '0')}</div>
-        <p className="ach-text">{ach}</p>
-        <div className="ach-accent-line" style={{ background: color, boxShadow: `0 0 8px ${color}` }} />
-      </div>
-
-      {/* Center orb */}
-      <div className="ach-orb" style={{ '--ach-color': color }}>
-        {icon}
-      </div>
-
-      {/* Spacer for opposite side */}
-      <div style={{ flex: 1 }} />
-    </div>
-  )
-}
+const COLORS = ['#a78bfa', '#06b6d4', '#34d399', '#fb923c', '#ec4899', '#fbbf24', '#818cf8']
 
 export default function Achievements() {
-  const timelineRef = useRef(null)
-  const [timelineVis, setTimelineVis] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setTimelineVis(true) },
-      { threshold: 0.1 }
-    )
-    if (timelineRef.current) observer.observe(timelineRef.current)
-    return () => observer.disconnect()
-  }, [])
+  const [headRef, headVis] = useScrollReveal()
+  const [gridRef, gridVis] = useScrollReveal()
 
   return (
     <section id="achievements" className="section ds-section">
       <div className="ds-grid-overlay" aria-hidden="true" />
       <div className="section-container">
-        <div className="section-header">
+        <div ref={headRef} className={`section-header ${headVis ? 'reveal' : ''}`}>
           <span className="ds-label"><Trophy size={12} /> Milestones</span>
           <h2 className="ds-title">Achievements</h2>
-          <p className="section-subtitle">Key highlights from my AI/ML journey — each step forward</p>
+          <p className="section-subtitle">Key highlights from my AI/ML journey — each step building toward the future</p>
         </div>
 
-        <div
-          ref={timelineRef}
-          className={`achievements-timeline ${timelineVis ? 'reveal' : ''}`}
-        >
+        <div ref={gridRef} className="achievements-grid">
           {achievements.map((ach, i) => (
-            <AchEntry
+            <AchievementCard
               key={i}
               ach={ach}
               index={i}
               color={COLORS[i % COLORS.length]}
               icon={ICONS[i % ICONS.length]}
+              visible={gridVis}
             />
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+function AchievementCard({ ach, index, color, icon, visible }) {
+  const cardRef = useRef(null)
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current
+    if (!card) return
+    const rect = card.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18
+    const y = -((e.clientY - rect.top) / rect.height - 0.5) * 18
+    card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-8px) scale(1.02)`
+  }
+
+  const handleMouseLeave = () => {
+    if (cardRef.current) cardRef.current.style.transform = ''
+  }
+
+  return (
+    <div
+      ref={cardRef}
+      className={`achievement-card-3d ${visible ? 'reveal' : ''}`}
+      style={{
+        animationDelay: `${index * 0.1}s`,
+        '--ach-color': color,
+        borderLeft: `3px solid ${color}`,
+        boxShadow: `0 4px 20px rgba(0,0,0,0.3), -2px 0 20px ${color}22`,
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div
+        className="achievement-num"
+        style={{ color, textShadow: `0 0 20px ${color}88` }}
+      >
+        {icon}
+      </div>
+      <p className="achievement-text">{ach}</p>
+    </div>
   )
 }

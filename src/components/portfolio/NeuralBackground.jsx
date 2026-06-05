@@ -1,20 +1,21 @@
 import React, { useEffect, useRef } from 'react'
 
-// Premium aurora palette — matches new Data Scientist theme
+// Deep Space Neon Palette — violet / cyan / pink
 const NODE_COLORS_DARK = [
-    [45, 212, 191],   // electric teal  (#2dd4bf)
     [124, 58, 237],   // deep violet    (#7c3aed)
     [167, 139, 250],  // violet-400     (#a78bfa)
-    [59, 130, 246],   // sapphire       (#3b82f6)
+    [6, 182, 212],    // cyan           (#06b6d4)
+    [236, 72, 153],   // neon pink      (#ec4899)
     [16, 185, 129],   // emerald        (#10b981)
     [217, 70, 239],   // fuchsia        (#d946ef)
+    [245, 158, 11],   // amber          (#f59e0b)
 ]
 
 const NODE_COLORS_LIGHT = [
-    [13, 148, 136],   // teal-600
-    [124, 58, 237],   // violet-600
+    [109, 40, 217],   // violet-700
+    [8, 145, 178],    // cyan-600
     [5, 150, 105],    // emerald-600
-    [37, 99, 235],    // blue-600
+    [157, 23, 77],    // pink-800
     [139, 92, 246],   // violet-500
 ]
 

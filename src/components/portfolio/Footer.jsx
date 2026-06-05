@@ -9,24 +9,16 @@ export default function Footer({ onNav }) {
 
   return (
     <footer className="footer">
-      {/* Animated gradient beam */}
-      <div className="footer-beam" aria-hidden="true" />
-
-      {/* Decorative background text */}
-      <div className="footer-bg-text" aria-hidden="true">SANDEEP MUHAL</div>
-
-      <div className="footer-container">
+      <div className="footer-inner">
         <div className="footer-top">
           {/* Brand */}
-          <div className="footer-brand">
-            <button className="nav-brand" onClick={() => onNav('home')} aria-label="Go to top">
+          <div>
+            <button className="nav-brand" onClick={() => onNav('home')} aria-label="Go to top" style={{ marginBottom: '10px' }}>
               <span className="brand-dot" />
               <span className="brand-name">Sandeep<span className="brand-accent"> Muhal</span></span>
             </button>
-            <p className="footer-tagline">
-              Data Scientist &amp; AI Engineer · Building intelligent systems that matter.
-            </p>
-            <div className="footer-socials-row">
+            <p className="footer-tagline">Data Scientist &amp; AI Engineer · Building intelligent systems that matter.</p>
+            <div className="footer-socials" style={{ marginTop: '16px' }}>
               {[
                 { href: personalInfo.github,    icon: <Github size={16} />,    label: 'GitHub' },
                 { href: personalInfo.linkedin,  icon: <Linkedin size={16} />,  label: 'LinkedIn' },
@@ -50,11 +42,15 @@ export default function Footer({ onNav }) {
           </div>
 
           {/* Navigation links */}
-          <div className="footer-socials">
-            <div className="footer-links-label">Navigation</div>
+          <div>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '0.72rem', fontWeight: '700', letterSpacing: '0.12em',
+              textTransform: 'uppercase', color: 'var(--text-dim)', marginBottom: '14px'
+            }}>Navigation</div>
             <div className="footer-links">
               {NAV_SECTIONS.map(s => (
-                <button key={s} className="footer-nav-link" onClick={() => onNav(s)}>
+                <button key={s} className="footer-link" onClick={() => onNav(s)}>
                   {s.charAt(0).toUpperCase() + s.slice(1)}
                 </button>
               ))}
@@ -62,23 +58,25 @@ export default function Footer({ onNav }) {
           </div>
 
           {/* Quick connect */}
-          <div className="footer-socials">
-            <div className="footer-links-label">Quick Connect</div>
-            <div className="footer-links">
-              <a href={personalInfo.resume} target="_blank" rel="noopener noreferrer" className="footer-nav-link">📄 Download Resume</a>
-              <a href={personalInfo.kaggle} target="_blank" rel="noopener noreferrer" className="footer-nav-link">🏆 Kaggle Profile</a>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="footer-nav-link">💻 GitHub Repos</a>
-              <a href={`mailto:${personalInfo.email}`} className="footer-nav-link">✉️ Send Email</a>
+          <div>
+            <div style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '0.72rem', fontWeight: '700', letterSpacing: '0.12em',
+              textTransform: 'uppercase', color: 'var(--text-dim)', marginBottom: '14px'
+            }}>Quick Connect</div>
+            <div className="footer-links" style={{ flexDirection: 'column' }}>
+              <a href={personalInfo.resume} target="_blank" rel="noopener noreferrer" className="footer-link">📄 Resume</a>
+              <a href={personalInfo.kaggle} target="_blank" rel="noopener noreferrer" className="footer-link">🏆 Kaggle</a>
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="footer-link">💻 GitHub</a>
+              <a href={`mailto:${personalInfo.email}`} className="footer-link">✉️ Email</a>
             </div>
           </div>
         </div>
 
-        <div className="footer-divider" />
-
         <div className="footer-bottom">
-          <p>© {year} Sandeep Muhal. All rights reserved.</p>
-          <p className="footer-made">
-            Made with <Heart size={12} className="footer-heart" /> &amp; Python 🐍
+          <p>© {year} <span className="footer-copy-accent">Sandeep Muhal</span>. All rights reserved.</p>
+          <p className="footer-tech">
+            Made with <Heart size={12} style={{ display:'inline', color:'#ec4899', verticalAlign:'middle' }} /> &amp; Python 🐍
           </p>
         </div>
       </div>

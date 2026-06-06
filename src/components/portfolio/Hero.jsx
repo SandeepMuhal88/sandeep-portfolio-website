@@ -18,69 +18,67 @@ const FLOATING_WORDS = [
   'Python', 'PyTorch', 'TensorFlow', 'LangChain', 'FAISS',
   'FastAPI', 'Docker', 'RAG', 'CNN', 'LSTM', 'BERT', 'GPT',
   'LLaMA', 'Flutter', 'llama.cpp', 'GGUF', 'RLHF', 'Scikit-learn',
-  'HuggingFace', 'OpenCV', 'SQLite', 'Dart FFI', 'Transformer',
+  'HuggingFace', 'OpenCV', 'SQLite', 'Transformer',
 ]
 
-/* ─── Big Animated 3D Python Logo SVG ─── */
+/* ─────────────────────────────────────────────
+   PROPER PYTHON LOGO — Official SVG, Monochrome
+   ───────────────────────────────────────────── */
 function Python3DLogo() {
   return (
     <div className="hero-python-3d">
       <div className="python-scene">
-        {/* Orbital rings */}
+        {/* Ring 1 */}
         <div className="python-ring python-ring-1">
           <div className="ring-dot ring-dot-1" />
         </div>
+        {/* Ring 2 */}
         <div className="python-ring python-ring-2">
           <div className="ring-dot ring-dot-2" />
         </div>
+        {/* Ring 3 */}
         <div className="python-ring python-ring-3">
           <div className="ring-dot ring-dot-3" />
         </div>
 
-        {/* Python SVG Logo */}
+        {/* Official Python Logo — proper snake design, rendered in white/gray */}
         <svg
           className="python-logo-svg"
-          viewBox="0 0 110.3 110.4"
+          viewBox="0 0 256 255"
           xmlns="http://www.w3.org/2000/svg"
-          aria-label="Python Programming Language Logo"
+          aria-label="Python Programming Language"
+          role="img"
         >
           <defs>
-            <linearGradient id="py-blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#a78bfa" />
-              <stop offset="100%" stopColor="#7c3aed" />
+            <linearGradient id="py-body-top" x1="12.959%" y1="12.039%" x2="79.639%" y2="78.201%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.9)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0.55)" />
             </linearGradient>
-            <linearGradient id="py-yellow-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#06b6d4" />
-              <stop offset="100%" stopColor="#0891b2" />
+            <linearGradient id="py-body-bot" x1="19.128%" y1="20.579%" x2="90.742%" y2="88.429%">
+              <stop offset="0%" stopColor="rgba(255,255,255,0.55)" />
+              <stop offset="100%" stopColor="rgba(255,255,255,0.85)" />
             </linearGradient>
           </defs>
+
+          {/* Top snake body — the blue part in original, white here */}
           <path
-            fill="url(#py-blue-grad)"
-            d="M54.8 0C44.2 0 43.4 4.6 43.4 4.6l0 4.8h11.8v1.4H37.4S27 9.5 27 20.3s8.8 10.4 8.8 10.4h5.2v-5s-0.3-8.8 8.7-8.8h15s8.4 0.1 8.4-8.1V8.9S71.7 0 54.8 0z M48.9 5.1c1.5 0 2.7 1.2 2.7 2.7s-1.2 2.7-2.7 2.7-2.7-1.2-2.7-2.7S47.4 5.1 48.9 5.1z"
+            fill="url(#py-body-top)"
+            d="M127.559 0.047c-67.765 0-63.527 29.435-63.527 29.435l.075 30.51h64.728v9.153H40.692S0 64.114 0 132.573c0 68.453 37.862 66.023 37.862 66.023h22.61V169.44s-1.218-37.862 37.247-37.862h64.183s36.051.583 36.051-34.85V35.202S203.275.047 127.559.047zm-35.601 20.67a11.658 11.658 0 110 23.317 11.658 11.658 0 010-23.317z"
           />
+
+          {/* Bottom snake body — the yellow part in original, lighter white here */}
           <path
-            fill="url(#py-yellow-grad)"
-            d="M55.5 110.4c10.6 0 11.5-4.6 11.5-4.6l0-4.8H55.2v-1.4h17.7s10.4 1.3 10.4-9.5-8.8-10.4-8.8-10.4h-5.2v5s0.3 8.8-8.7 8.8H45.1s-8.4-0.1-8.4 8.1v7.9S38.6 110.4 55.5 110.4z M61.4 105.3c-1.5 0-2.7-1.2-2.7-2.7s1.2-2.7 2.7-2.7 2.7 1.2 2.7 2.7S62.9 105.3 61.4 105.3z"
-          />
-          <path
-            fill="url(#py-blue-grad)"
-            opacity="0.6"
-            d="M43.4 9.4v10.9c0 0 0 8.4 8.4 8.4h15.3c0 0 8.1 0 8.1 8.1v15.2c0 0 0 8.5-8.5 8.5H51.4c0 0-8.5 0-8.5 8.5v0l0 0H35c0 0-8-0.1-8-8.1V37c0 0 0.1-8.5 8.5-8.5h13.2V18.4C48.7 18.4 48.8 9.4 43.4 9.4z"
-          />
-          <path
-            fill="url(#py-yellow-grad)"
-            opacity="0.6"
-            d="M66.9 101.1V90.2c0 0 0-8.4-8.4-8.4H43.2c0 0-8.1 0-8.1-8.1V58.5c0 0 0-8.5 8.5-8.5h15.3c0 0 8.5 0 8.5-8.5v0l0 0h8c0 0 8 0.1 8 8.1v16.9c0 0-0.1 8.5-8.5 8.5H61.6v10.1C61.6 85.1 61.5 94.1 66.9 94.1l0 7.1z"
+            fill="url(#py-body-bot)"
+            d="M128.685 254.578c67.765 0 63.527-29.435 63.527-29.435l-.075-30.51h-64.728v-9.153h88.143s40.692 5.031 40.692-63.428c0-68.453-37.862-66.023-37.862-66.023h-22.61V85.185s1.218 37.862-37.247 37.862H94.341s-36.051-.583-36.051 34.85v62.487s-5.525 34.194 70.395 34.194zm35.601-20.67a11.658 11.658 0 110-23.317 11.658 11.658 0 010 23.317z"
           />
         </svg>
 
-        {/* Glow base shadow */}
         <div className="python-glow-base" />
       </div>
 
-      {/* Floating badges */}
-      <div className="py-badge py-badge-1">🤖 LLM</div>
-      <div className="py-badge py-badge-2">⚡ FastAPI</div>
+      {/* Floating tech badges */}
+      <div className="py-badge py-badge-1">⚡ FastAPI</div>
+      <div className="py-badge py-badge-2">🤖 LLM</div>
       <div className="py-badge py-badge-3">🔥 PyTorch</div>
       <div className="py-badge py-badge-4">🐳 Docker</div>
       <div className="py-badge py-badge-5">🧠 Deep Learning</div>
@@ -103,8 +101,8 @@ export default function Hero({ onNav }) {
       word: w,
       x: 5 + ((i * 37) % 88),
       y: 8 + ((i * 53) % 82),
-      delay: i * 0.4,
-      dur: 7 + (i % 5),
+      delay: i * 0.45,
+      dur: 8 + (i % 5),
     }))
   )
 
@@ -113,11 +111,11 @@ export default function Hero({ onNav }) {
     const current = ROLES[roleIndex]
     let t
     if (!deleting && charIndex <= current.length) {
-      t = setTimeout(() => { setDisplayed(current.slice(0, charIndex)); setCharIndex(c => c + 1) }, 52)
+      t = setTimeout(() => { setDisplayed(current.slice(0, charIndex)); setCharIndex(c => c + 1) }, 50)
     } else if (!deleting && charIndex > current.length) {
-      t = setTimeout(() => setDeleting(true), 2200)
+      t = setTimeout(() => setDeleting(true), 2400)
     } else if (deleting && charIndex > 0) {
-      t = setTimeout(() => { setDisplayed(current.slice(0, charIndex - 1)); setCharIndex(c => c - 1) }, 28)
+      t = setTimeout(() => { setDisplayed(current.slice(0, charIndex - 1)); setCharIndex(c => c - 1) }, 26)
     } else {
       setDeleting(false)
       setRoleIndex(r => (r + 1) % ROLES.length)
@@ -130,11 +128,11 @@ export default function Hero({ onNav }) {
     const t = setTimeout(() => {
       setGlitching(true)
       setTimeout(() => setGlitching(false), 350)
-    }, 800)
+    }, 900)
     return () => clearTimeout(t)
   }, [])
 
-  // Mouse parallax
+  // Mouse parallax on hero card
   useEffect(() => {
     const section = sectionRef.current
     if (!section) return
@@ -161,11 +159,11 @@ export default function Hero({ onNav }) {
 
   return (
     <section id="home" className="hero-section" ref={sectionRef}>
-      {/* Gradient mesh */}
+      {/* Dot grid */}
       <div className="hero-mesh" aria-hidden="true" />
       {/* Neural network canvas */}
       <NeuralBackground />
-      {/* Floating tech words */}
+      {/* Floating keywords */}
       <div className="hero-floaters" aria-hidden="true">
         {floaters.map((f, i) => (
           <span
@@ -185,11 +183,11 @@ export default function Hero({ onNav }) {
 
       {/* Main content */}
       <div className="hero-content">
-        {/* Left: Text card */}
+        {/* LEFT: Text */}
         <div className="hero-card-3d" ref={cardRef}>
-          {/* Status badge */}
+          {/* Badge */}
           <div className="hero-badge">
-            <Brain size={13} />
+            <Brain size={12} />
             <span className="hero-badge-dot-wrap">
               <span className="hero-badge-dot" />
             </span>
@@ -208,17 +206,17 @@ export default function Hero({ onNav }) {
             <span className="hero-name-filled"> Muhal</span>
           </h1>
 
-          {/* Typewriter terminal */}
+          {/* Typewriter */}
           <div className="hero-role" aria-live="polite">
-            <span className="hero-role-prefix">{'>>> '}</span>
+            <span className="hero-role-prefix">{'> '}</span>
             <span className="hero-role-text">{displayed}</span>
-            <span className="hero-cursor" aria-hidden="true">_</span>
+            <span className="hero-cursor" aria-hidden="true">█</span>
           </div>
 
           <p className="hero-summary">{personalInfo.summary.slice(0, 195)}…</p>
 
           {/* CTA */}
-          <div className="hero-cta" style={{ position: 'relative', zIndex: 10 }}>
+          <div className="hero-cta">
             <button
               className="btn-3d btn-3d--primary"
               onClick={() => {
@@ -228,7 +226,7 @@ export default function Hero({ onNav }) {
               }}
               id="hero-explore-btn"
             >
-              <span>Explore My Work</span>
+              Explore My Work
             </button>
             <a
               className="btn-3d btn-3d--outline"
@@ -237,28 +235,28 @@ export default function Hero({ onNav }) {
               rel="noopener noreferrer"
               id="hero-resume-btn"
             >
-              <Download size={15} />
-              <span>Download CV</span>
+              <Download size={14} />
+              Download CV
             </a>
           </div>
 
           {/* Socials */}
           <div className="hero-socials">
-            <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" className="social-orb" aria-label="GitHub"><Github size={18} /></a>
-            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-orb" aria-label="LinkedIn"><Linkedin size={18} /></a>
-            <a href={`mailto:${personalInfo.email}`} className="social-orb" aria-label="Email"><Mail size={18} /></a>
-            <a href={`tel:${personalInfo.phone}`} className="social-orb" aria-label="Phone"><Phone size={18} /></a>
+            <a href={personalInfo.github}   target="_blank" rel="noopener noreferrer" className="social-orb" aria-label="GitHub"><Github size={17} /></a>
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="social-orb" aria-label="LinkedIn"><Linkedin size={17} /></a>
+            <a href={`mailto:${personalInfo.email}`}           className="social-orb" aria-label="Email"><Mail size={17} /></a>
+            <a href={`tel:${personalInfo.phone}`}              className="social-orb" aria-label="Phone"><Phone size={17} /></a>
           </div>
         </div>
 
-        {/* Right: Big 3D Python Logo */}
+        {/* RIGHT: 3D Python Logo */}
         <Python3DLogo />
       </div>
 
       {/* Scroll cue */}
       <button className="hero-scroll" onClick={() => onNav('about')} aria-label="Scroll to About">
         <span className="hero-scroll-label">Scroll</span>
-        <ChevronDown size={20} className="hero-scroll-icon" />
+        <ChevronDown size={18} className="hero-scroll-icon" />
       </button>
     </section>
   )

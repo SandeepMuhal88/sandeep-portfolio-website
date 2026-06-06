@@ -1,13 +1,2 @@
-/* ── Tailwind base (required by project setup) ── */
+/* Tailwind base — required for Vite plugin */
 @import "tailwindcss";
-
-/* ── App overrides ── */
-/* Ensure 3D buttons are always clickable */
-.btn-3d {
-  cursor: pointer;
-  pointer-events: auto !important;
-}
-.hero-cta {
-  position: relative;
-  z-index: 10;
-}

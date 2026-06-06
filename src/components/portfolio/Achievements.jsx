@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef } from 'react'
 import { achievements } from '../../data/resumeData'
 import { Trophy } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useAnimations.js'
 
-const ICONS  = ['🏆', '📈', '⚡', '🔬', '🐳', '🤖', '🚀']
-const COLORS = ['#a78bfa', '#06b6d4', '#34d399', '#fb923c', '#ec4899', '#fbbf24', '#818cf8']
+const ICONS = ['🏆', '📈', '⚡', '🔬', '🐳', '🤖', '🚀']
 
 export default function Achievements() {
   const [headRef, headVis] = useScrollReveal()
@@ -26,7 +25,6 @@ export default function Achievements() {
               key={i}
               ach={ach}
               index={i}
-              color={COLORS[i % COLORS.length]}
               icon={ICONS[i % ICONS.length]}
               visible={gridVis}
             />
@@ -37,16 +35,16 @@ export default function Achievements() {
   )
 }
 
-function AchievementCard({ ach, index, color, icon, visible }) {
+function AchievementCard({ ach, index, icon, visible }) {
   const cardRef = useRef(null)
 
   const handleMouseMove = (e) => {
     const card = cardRef.current
     if (!card) return
     const rect = card.getBoundingClientRect()
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 18
-    const y = -((e.clientY - rect.top) / rect.height - 0.5) * 18
-    card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-8px) scale(1.02)`
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 16
+    const y = -((e.clientY - rect.top) / rect.height - 0.5) * 16
+    card.style.transform = `perspective(700px) rotateX(${y}deg) rotateY(${x}deg) translateY(-7px) scale(1.02)`
   }
 
   const handleMouseLeave = () => {
@@ -57,21 +55,11 @@ function AchievementCard({ ach, index, color, icon, visible }) {
     <div
       ref={cardRef}
       className={`achievement-card-3d ${visible ? 'reveal' : ''}`}
-      style={{
-        animationDelay: `${index * 0.1}s`,
-        '--ach-color': color,
-        borderLeft: `3px solid ${color}`,
-        boxShadow: `0 4px 20px rgba(0,0,0,0.3), -2px 0 20px ${color}22`,
-      }}
+      style={{ animationDelay: `${index * 0.09}s` }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <div
-        className="achievement-num"
-        style={{ color, textShadow: `0 0 20px ${color}88` }}
-      >
-        {icon}
-      </div>
+      <div className="achievement-num">{icon}</div>
       <p className="achievement-text">{ach}</p>
     </div>
   )

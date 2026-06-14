@@ -272,6 +272,27 @@ export const projects = [
     },
 ];
 
+export const experience = [
+    {
+        company: "CypherX Elites",
+        role: "Data Scientist",
+        type: "Full-Time",
+        duration: "June 2026 – Present",
+        location: "Remote",
+        website: "https://www.cypherxelites.me/",
+        logo: "/images/cypherx-elites-logo.png",
+        current: true,
+        highlights: [
+            "Designing and deploying end-to-end machine learning pipelines for real-world business use cases.",
+            "Building and fine-tuning LLM-based solutions for intelligent automation and data extraction.",
+            "Developing predictive models and data analysis workflows to drive actionable insights.",
+            "Collaborating with cross-functional teams to integrate AI solutions into production systems.",
+            "Applying RAG and vector search techniques for knowledge retrieval and document QA.",
+        ],
+        tech: ["Python", "Machine Learning", "LLMs", "RAG", "FastAPI", "Data Analysis"],
+    },
+];
+
 export const achievements = [
     "Completed 12+ ML/DL, LLM, and on-device AI projects with working demos and GitHub repositories.",
     "Built RAMA AI — a fully offline, on-device LLM inference Android app using llama.cpp & Dart FFI.",

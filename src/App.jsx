@@ -4,6 +4,7 @@ import Hero from './components/portfolio/Hero.jsx'
 import About from './components/portfolio/About.jsx'
 import Skills from './components/portfolio/Skills.jsx'
 import Projects from './components/portfolio/Projects.jsx'
+import Experience from './components/portfolio/Experience.jsx'
 import Education from './components/portfolio/Education.jsx'
 import Achievements from './components/portfolio/Achievements.jsx'
 import Contact from './components/portfolio/Contact.jsx'
@@ -16,7 +17,7 @@ export function useTheme() {
   return useContext(ThemeContext)
 }
 
-const SECTIONS = ['home', 'about', 'skills', 'projects', 'education', 'achievements', 'contact']
+const SECTIONS = ['home', 'about', 'skills', 'projects', 'experience', 'education', 'achievements', 'contact']
 
 function ScrollProgressBar() {
   const [progress, setProgress] = useState(0)
@@ -114,6 +115,7 @@ export default function App() {
           <About />
           <Skills />
           <Projects />
+          <Experience />
           <Education />
           <Achievements />
           <Contact />

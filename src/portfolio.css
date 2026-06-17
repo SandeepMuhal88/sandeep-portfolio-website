@@ -1397,20 +1397,24 @@ img { max-width:100%; height:auto; }
 .exp-logo-wrap {
   width: 60px; height: 60px;
   border-radius: 12px;
-  background: rgba(255,255,255,0.06);
+  background: #1a1a1a;
   border: 1px solid var(--border);
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
   overflow: hidden;
   padding: 8px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, background 0.3s;
 }
 .exp-card:hover .exp-logo-wrap { border-color: var(--border-b); }
 
 .exp-logo {
   width: 100%; height: 100%;
   object-fit: contain;
-  filter: brightness(1.1);
+  filter: brightness(1.15) contrast(1.1);
+  transition: filter 0.3s;
+}
+.exp-card:hover .exp-logo {
+  filter: brightness(1.3) drop-shadow(0 0 8px rgba(255,255,255,0.3));
 }
 
 .exp-title-block { flex: 1; }

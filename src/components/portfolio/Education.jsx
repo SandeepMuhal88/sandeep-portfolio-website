@@ -4,9 +4,9 @@ import { GraduationCap, Calendar, MapPin, BookOpen, Star } from 'lucide-react'
 import { useScrollReveal } from '../../hooks/useAnimations.js'
 
 // CGPA arc: circumference of r=41 = 2*pi*41 ≈ 257.6
-// 7.93/10 = 79.3% → offset = 257.6 * (1 - 0.793) = 53.3
+// 8.88/10 = 88.8% → offset = 257.6 * (1 - 0.888) = 29.4
 const CIRC = 257.6
-const CGPA_PCT = 7.93 / 10
+const CGPA_PCT = 8.88/ 10
 const CGPA_OFFSET = CIRC * (1 - CGPA_PCT)
 
 export default function Education() {

@@ -10,12 +10,12 @@ export const personalInfo = {
     phone: "+91 7879496344",
     github: "https://github.com/SandeepMuhal88",
     linkedin: "https://www.linkedin.com/in/sandeep-muhal-5672aa285/",
-    portfolio: "https://sandeepmuhal88.github.io/sandeep-portfolio-website/",
+    portfolio: "https://sandeepmuhalin.vercel.app/",
     kaggle: "https://www.kaggle.com/sandeepmuhal88",
-    instagram: "https://www.instagram.com/i_sandeepmuhal8/",
+    instagram: "https://www.instagram.com/sandeepmuhal.in/",
     youtube: "https://www.youtube.com/@sandeepmuhal88",
     twitter: "https://x.com/i_sandeepmuhal8",
-    resume: "https://drive.google.com/file/d/1jInL8ahnJvAlakFFSSd9Dxh-iSkvjZCN/view?usp=sharing",
+    resume: "https://drive.google.com/file/d/1K4ECQl9A37TNwU1C1mRKFp4VO5tNKlJ_/view?usp=sharing",
     summary:
         "Data Scientist & AI Engineer specializing in LLMs, Transformers, RAG pipelines, Computer Vision, and on-device AI. I build end-to-end intelligent systems — from model research and fine-tuning to production deployment via FastAPI, Docker, and Flutter — with a focus on trustworthy, reliable AI.",
     roles: [
@@ -33,7 +33,7 @@ export const education = {
     university: "Bikaner Technical University",
     duration: "Aug 2022 – Aug 2026 (Expected)",
     location: "Rajasthan, India",
-    cgpa: "7.93 / 10.0",
+    cgpa: "8.88 / 10.0",
     courses: [
         "Data Structures & Algorithms",
         "Machine Learning",

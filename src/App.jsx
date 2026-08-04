@@ -10,6 +10,7 @@ import Achievements from './components/portfolio/Achievements.jsx'
 import Contact from './components/portfolio/Contact.jsx'
 import Footer from './components/portfolio/Footer.jsx'
 import './portfolio.css'
+import { Analytics } from "@vercel/analytics/react"
 
 export const ThemeContext = createContext({ theme: 'dark', toggleTheme: () => { } })
 
@@ -107,7 +108,7 @@ export default function App() {
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       <div className="portfolio-root" data-theme={theme}>
-        <LoadingScreen />
+        {!loaded && <LoadingScreen />}
         <ScrollProgressBar />
         <Navbar activeSection={activeSection} onNav={scrollTo} />
         <main>
@@ -119,6 +120,7 @@ export default function App() {
           <Education />
           <Achievements />
           <Contact />
+          <Analytics />
         </main>
         <Footer onNav={scrollTo} />
       </div>

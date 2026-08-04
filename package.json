@@ -11,6 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "framer-motion": "^12.15.0",
     "lucide-react": "^0.510.0",
     "react": "^19.1.0",
